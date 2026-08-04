@@ -1,0 +1,20 @@
+import { craftQuery } from "@/lib/craft/client";
+import { NewsIndexQuery } from "@/queries";
+
+export type NewsOrder = "newest" | "oldest";
+
+const newsOrderBy: Record<NewsOrder, string> = {
+  newest: "postDate DESC",
+  oldest: "postDate ASC",
+};
+
+export const getNews = (limit = 12, order: NewsOrder = "newest") => {
+  return craftQuery(
+    NewsIndexQuery,
+    { limit, orderBy: newsOrderBy[order] },
+    {
+      tags: ["craft", "craft:entries", "craft:news", "craft:section:news"],
+      revalidate: false,
+    },
+  );
+};

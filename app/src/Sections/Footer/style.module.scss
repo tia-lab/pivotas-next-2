@@ -1,0 +1,13 @@
+@use '../../styles/export.scss' as *;
+
+.footer {
+	padding: $space-section3 0;
+	margin: $space-section3 0 0 0;
+	background-color: $color-primary;
+	border-top: $color-secondary 1px solid;
+
+	.content {
+		grid-column: span 12;
+		justify-self: end;
+	}
+}

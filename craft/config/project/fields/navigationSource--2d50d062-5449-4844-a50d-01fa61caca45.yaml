@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: navigationSource
+instructions: null
+name: 'Navigation Source'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Pages
+        -
+          - value
+          - pages
+        -
+          - default
+          - true
+    -
+      __assoc__:
+        -
+          - label
+          - Manual
+        -
+          - value
+          - manual
+        -
+          - default
+          - false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
