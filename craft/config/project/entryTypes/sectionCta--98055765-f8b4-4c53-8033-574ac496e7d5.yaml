@@ -2,7 +2,7 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  b1b76ab5-354f-4879-bb3a-7ba211c4e75a:
+  31eb46d3-9be2-41a0-81b4-69951f405945:
     cardThumbAlignment: end
     tabs:
       -
@@ -32,7 +32,7 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: c796d93c-3c43-4bbf-a53c-a3c16ee2ceaa
+            uid: ec2d4a49-9418-46c1-9a5f-e3231dea701f
             userCondition: null
             warning: null
             width: 100
@@ -41,30 +41,14 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: f1720845-8ddc-4032-bddc-1cd1eb098b56 # Text
+            fieldUid: 55e5181d-ba5a-4f10-a7bc-b8fd27e6f57d # CTA Slides
             handle: null
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 054762b1-d969-4976-a885-9b32e6536037
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 6f4fd0ee-dca6-41bc-9a7d-a027e3e1077f # Links
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: e91b6ba2-0d8b-44ad-8504-ac0c04d83eaf
+            uid: ea7a3a1b-5f43-45bd-aa27-c455e9e6cda2
             userCondition: null
             warning: null
             width: 100
@@ -80,7 +64,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9214a761-24a9-4a31-b0eb-ba8ecba39ff8
+            uid: fbbab4f0-d356-49fd-afc7-3fa2483901f5
             userCondition: null
             warning: null
             width: 100
@@ -96,7 +80,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 4ff65e49-bf10-4696-b0ab-2c3cbbfbf8ba
+            uid: cb377294-50d6-492d-82ea-6208d90d95de
             userCondition: null
             warning: null
             width: 50
@@ -112,18 +96,18 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7e1d93d4-2245-49ce-9518-04f8cb17acf5
+            uid: cb978444-7393-4a69-aeb0-f6520c1ba947
             userCondition: null
             warning: null
             width: 50
         name: Content
-        uid: c869a93a-c166-4264-b871-6344585b692e
+        uid: 2b9735a7-3215-4e16-9003-02c62d0f297e
         userCondition: null
     thumbFieldKey: null
 handle: sectionCta
 hasTitleField: true
-icon: bullhorn
-name: 'Section CTA'
+icon: gallery-horizontal
+name: 'Section CTA Slider'
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null

@@ -1,0 +1,19 @@
+@use '../../styles/export.scss' as *;
+
+.link {
+	border-top: 1px solid $color-secondary;
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 1.5rem;
+	padding-top: 1.5rem;
+	overflow: hidden;
+	.arrow_wrapper {
+		width: calc(100% - 1.6rem);
+		position: relative;
+		.arrow {
+			width: 1rem;
+			height: 1rem;
+		}
+	}
+}

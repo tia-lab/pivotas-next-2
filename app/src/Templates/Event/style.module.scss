@@ -1,0 +1,78 @@
+@use '../../styles/export.scss' as *;
+
+.section {
+	padding: 15rem 0 $space-section1;
+
+	.head {
+		grid-column: 2 / span 10;
+		display: flex;
+		flex-direction: column;
+		gap: $space-xs;
+	}
+
+	.subtitle {
+		max-width: 52rem;
+	}
+
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-xs;
+	}
+
+	.hero_image {
+		@include object-fit-wrap;
+		grid-column: span 12;
+		margin-top: $space-md;
+		padding-top: 56.25%;
+	}
+
+	.image {
+		@include object-fit;
+	}
+
+	.text {
+		grid-column: 3 / span 8;
+		margin-top: $space-md;
+	}
+
+	.gallery,
+	.related_links {
+		grid-column: span 12;
+		margin-top: $space-md;
+	}
+
+	.gallery_image {
+		@include object-fit-wrap;
+		padding-top: 66.666%;
+	}
+
+	.related_links {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: $space-md $space-xs;
+	}
+
+	.related_link_group {
+		display: flex;
+		flex-direction: column;
+		gap: $space-xs;
+	}
+
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-xs;
+	}
+
+	@include mobile {
+		.head,
+		.text {
+			grid-column: span 12;
+		}
+
+		.related_links {
+			grid-template-columns: 1fr;
+		}
+	}
+}

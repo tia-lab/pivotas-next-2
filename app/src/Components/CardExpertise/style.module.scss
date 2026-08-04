@@ -1,0 +1,19 @@
+@use '../../styles/export.scss' as *;
+
+.article {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	.image_wrapper {
+		@include object-fit-wrap;
+		height: 38rem;
+		margin-bottom: 3rem;
+		.image {
+			@include object-fit;
+		}
+	}
+	.title {
+		margin-bottom: 1.5rem;
+	}
+}

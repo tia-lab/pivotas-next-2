@@ -1091,30 +1091,52 @@ skipped.
 
 ## Craft Model
 
-The starter model is small by design.
+Craft owns the Pivotas content model. The migrated database and project config
+must stay together because field, entry-type, section, and Matrix relations use
+stable Craft UUIDs.
 
 ### Entries
 
-| Section     | Handle        | Entry types         | Purpose                      |
-| ----------- | ------------- | ------------------- | ---------------------------- |
-| Pages       | `pages`       | `page`, `legalPage` | normal pages and legal pages |
-| News        | `news`        | `news`              | news collection              |
-| Navigations | `navigations` | `navigation`        | named navigation definitions |
+| Section           | Handle             | Entry types         | Purpose                                  |
+| ----------------- | ------------------ | ------------------- | ---------------------------------------- |
+| Pages             | `pages`            | `page`, `legalPage` | normal, expertise-index, and legal pages |
+| Expertise         | `expertise`        | `expertise`         | expertise detail pages with sections     |
+| News              | `news`             | `news`              | news collection and detail pages         |
+| Events            | `events`           | `event`             | event cards and detail pages              |
+| Services          | `services`         | `service`           | selectable service records               |
+| Team Members      | `teamMembers`      | `teamMember`        | people displayed by team sections        |
+| Help Center       | `helpCenter`       | `faq`               | reusable FAQ records                     |
+| Navigations       | `navigations`      | `navigation`        | named navigation definitions             |
+| Reusable Sections | `reusableSections` | section entry types | shared blocks referenced by pages        |
+
+The `teamCategories` category group classifies team members. Services, team
+members, and FAQs do not have public detail routes. Events and expertise
+entries do.
 
 ### Page Sections
 
-Pages compose content through the `sections` Matrix field.
+Pages and expertise entries compose content through the `sections` Matrix
+field.
 
 Current section entry types:
 
-| Entry type       | Purpose                                                        |
-| ---------------- | -------------------------------------------------------------- |
-| `sectionHero`    | title, subtitle, image                                         |
-| `sectionAbout`   | image/text block with variant                                  |
-| `sectionContent` | rich text section                                              |
-| `sectionCta`     | title, text, links                                             |
-| `sectionContact` | title, text, Freeform form reference                           |
-| `sectionNews`    | news display section with variant, limit, order, selected news |
+| Entry type           | Purpose                                                    |
+| -------------------- | ---------------------------------------------------------- |
+| `sectionHero`        | title, subtitle, description, image, and links             |
+| `sectionAbout`       | image/rich-text block with a layout variant                |
+| `sectionCta`         | image CTA slides with links                                |
+| `sectionTextCta`     | text CTA with links                                        |
+| `sectionContact`     | title, text, and Freeform form reference                   |
+| `sectionNews`        | selected or queried news in grid/slider layouts            |
+| `sectionEvents`      | selected or queried events in grid/slider layouts          |
+| `sectionNewsEvents`  | combined selected news and events                          |
+| `sectionExpertise`   | selected or queried expertise entries                     |
+| `sectionServices`    | selected service records                                   |
+| `sectionTeam`        | selected or queried team members                           |
+| `sectionList`        | authored title/description list items                      |
+| `sectionValues`      | authored value cards with image and rich text              |
+| `sectionImageSlider` | authored image cards in grid or slider form                |
+| `sectionReference`   | reference to a reusable section with optional spacing      |
 
 Sections can opt into custom spacing through `customSpacing`, `spaceTop`, and
 `spaceBottom`.
@@ -1146,12 +1168,15 @@ app/src/queries/
 
 Main query surfaces:
 
-| File              | Purpose                            |
-| ----------------- | ---------------------------------- |
-| `entry-by-uri.ts` | page, legal, and news entry lookup |
-| `globals.ts`      | footer, legal, Error Page, and SEO globals |
-| `navigation.ts`   | named navigation lookup            |
-| `news.ts`         | news index lookup                  |
+| File              | Purpose                                             |
+| ----------------- | --------------------------------------------------- |
+| `entry-by-uri.ts` | page, expertise, legal, news, and event lookup       |
+| `events.ts`       | event collection lookup                             |
+| `expertise.ts`    | expertise collection lookup                         |
+| `globals.ts`      | footer, legal, Error Page, and SEO globals           |
+| `navigation.ts`   | named navigation lookup                             |
+| `news.ts`         | news collection lookup                              |
+| `team.ts`         | team-member collection lookup                       |
 
 Fragments live under:
 
@@ -1190,7 +1215,9 @@ Renders the Craft homepage. The internal Craft URI for the homepage is `home`.
 app/src/app/[...slug]/page.tsx
 ```
 
-Renders normal Craft pages and legal pages by URI.
+Renders normal pages, legal pages, expertise details, and event details by
+their Craft URI. Event URIs use `events/{slug}` and expertise URIs use
+`expertise/{slug}`.
 
 ```txt
 app/src/app/news/page.tsx
@@ -1231,10 +1258,12 @@ Craft page URI.
 | Craft entry type  | Next template   |
 | ----------------- | --------------- |
 | `page_Entry`      | `PageTemplate`  |
+| `expertise_Entry` | `PageTemplate`  |
 | `legalPage_Entry` | `LegalTemplate` |
 | `news_Entry`      | `NewsTemplate`  |
+| `event_Entry`     | `EventTemplate` |
 
-Normal pages then render `sections` through:
+Normal pages and expertise entries then render `sections` through:
 
 ```txt
 app/src/Sections/SectionRouter.ts
@@ -1261,14 +1290,17 @@ Files under `app/src/Templates/` own entry-level layout.
 
 Use templates when the full entry type changes the page structure:
 
-| Entry type  | Template owns                    |
-| ----------- | -------------------------------- |
-| normal page | section-composed page layout     |
-| legal page  | legal title and rich text layout |
-| news entry  | news article/detail layout       |
+| Entry type      | Template owns                         |
+| --------------- | ------------------------------------- |
+| normal page     | section-composed page layout          |
+| expertise entry | section-composed expertise layout     |
+| legal page      | legal title and rich text layout      |
+| news entry      | news article/detail layout            |
+| event entry     | event metadata, body, gallery, links  |
 
-Templates decide whether an entry uses sections. Legal and news entries do not
-use the section composer unless that content model is intentionally changed.
+Templates decide whether an entry uses sections. Legal, news, and event entries
+do not use the section composer unless that content model is intentionally
+changed.
 
 ### Sections
 
@@ -2842,16 +2874,17 @@ Page or section animations that need lifecycle state can subscribe through:
 app/src/hooks/use-page-lifecycle-effect.ts
 ```
 
-## Starter Database And Content
+## Local Database And Content
 
 `craft/_backup-db/db.sql` is the clean local baseline. On an uninstalled DDEV
 project, `bun bootstrap` imports that database, applies tracked Craft project
 config, creates or reuses the local GraphQL token, and regenerates frontend
 GraphQL artifacts.
 
-The baseline content proves the content model, routing, GraphQL shape, preview,
-metadata, footer/legal globals, and navigation. Normal content changes belong
-in Craft. There is no model-reset or seed-reset command.
+The tracked project config owns the content-model structure. Project content,
+relations, and managed assets live in Craft and move between local DDEV and the
+hosted Craft runtime through `bun craft:push` and `bun craft:pull`. Normal
+content changes belong in Craft. There is no model-reset or seed-reset command.
 
 ## Local URLs
 

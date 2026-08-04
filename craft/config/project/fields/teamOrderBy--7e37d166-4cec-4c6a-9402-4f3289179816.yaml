@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: teamOrderBy
+instructions: null
+name: 'Team Order By'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'First Name A-Z'
+        -
+          - value
+          - firstNameAsc
+        -
+          - default
+          - true
+    -
+      __assoc__:
+        -
+          - label
+          - 'First Name Z-A'
+        -
+          - value
+          - firstNameDesc
+        -
+          - default
+          - false
+    -
+      __assoc__:
+        -
+          - label
+          - 'Last Name A-Z'
+        -
+          - value
+          - lastNameAsc
+        -
+          - default
+          - false
+    -
+      __assoc__:
+        -
+          - label
+          - 'Last Name Z-A'
+        -
+          - value
+          - lastNameDesc
+        -
+          - default
+          - false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -10,21 +10,10 @@ settings:
       __assoc__:
         -
           - label
-          - Left
+          - SingleImageSmall
         -
           - value
-          - left
-        -
-          - default
-          - false
-    -
-      __assoc__:
-        -
-          - label
-          - Right
-        -
-          - value
-          - right
+          - singleImageSmall
         -
           - default
           - true
@@ -32,10 +21,21 @@ settings:
       __assoc__:
         -
           - label
-          - Full
+          - SingleImageLarge
         -
           - value
-          - full
+          - singleImageLarge
+        -
+          - default
+          - false
+    -
+      __assoc__:
+        -
+          - label
+          - DoubleImage
+        -
+          - value
+          - doubleImage
         -
           - default
           - false

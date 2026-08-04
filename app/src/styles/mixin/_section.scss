@@ -1,0 +1,4 @@
+@mixin section-spacing($top: 8.75rem, $bottom: $top) {
+	padding: var(--section-space-top, #{$top}) 0
+		var(--section-space-bottom, #{$bottom});
+}

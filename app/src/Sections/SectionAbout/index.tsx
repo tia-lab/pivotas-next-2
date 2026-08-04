@@ -17,6 +17,7 @@ interface SectionAboutProps extends React.HTMLAttributes<HTMLElement> {
 export const SectionAbout = ({
 	section,
 	spacingOverride,
+	className,
 	style,
 	...props
 }: SectionAboutProps) => {
@@ -26,58 +27,62 @@ export const SectionAbout = ({
 		return null
 	}
 
-	const imageRef = data.image[0] ?? null
+	const images = data.images.filter(Boolean).slice(0, 2)
+	const primaryImage = images[0] ?? null
+	const secondaryImage = images[1] ?? null
 
 	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const spacingStyle = getSectionSpacingStyle(spacingSource)
 	const sectionStyle =
 		spacingStyle || style ? { ...spacingStyle, ...style } : undefined
 
-	const variant = data.aboutVariant || 'full'
+	const variant = data.aboutVariant || 'singleImageSmall'
 
-	const sectionClass = clsx($.section, {
-		[$[variant]]: variant
-	})
+	const sectionClass = clsx('section', $.section, $[variant], className)
 
 	return (
-		<section className={sectionClass} style={sectionStyle} {...props}>
+		<section
+			data-section-id={data.id ?? undefined}
+			data-section-type={data.typeHandle ?? undefined}
+			className={sectionClass}
+			style={sectionStyle}
+			{...props}>
 			<Wrapper>
 				<Container>
 					<div className={$.content}>
-						<Anim.h2
-							type='fade-up'
-							className={clsx($.title, variant === 'full' && 'title-jumbo')}>
+						{data.caption ? (
+							<Anim.p type='fade-up' className='text-caption'>
+								{data.caption}
+							</Anim.p>
+						) : null}
+						<Anim.h2 type='fade-up' className={$.title}>
 							{data.title}
 						</Anim.h2>
-						<Anim.p type='fade-up' className={$.description}>
-							{data.text}
-						</Anim.p>
-					</div>
-					{variant !== 'full' && imageRef ? (
-						<Anim.div type='fade' className={$.image_wrapper}>
-							<ImageCraft
-								image={imageRef}
-								className={$.image}
-								sizes='100vw'
-								loading='eager'
-								fetchPriority='high'
+						{data.richText?.html && variant !== 'singleImageLarge' ? (
+							<Anim.div
+								type='fade-up'
+								className='rich-text'
+								dangerouslySetInnerHTML={{ __html: data.richText.html }}
 							/>
+						) : null}
+					</div>
+					<Anim.div type='fade' className={clsx($.image_wrapper, $.is_primary)}>
+						<ImageCraft image={primaryImage} className={$.image} sizes='50vw' />
+					</Anim.div>
+					{variant === 'doubleImage' && secondaryImage ? (
+						<Anim.div type='fade' className={clsx($.image_wrapper, $.is_secondary)}>
+							<ImageCraft image={secondaryImage} className={$.image} sizes='50vw' />
 						</Anim.div>
+					) : null}
+					{variant === 'singleImageLarge' && data.richText?.html ? (
+						<Anim.div
+							type='fade-up'
+							className={clsx('rich-text', $.rich_text)}
+							dangerouslySetInnerHTML={{ __html: data.richText.html }}
+						/>
 					) : null}
 				</Container>
 			</Wrapper>
-			{variant === 'full' && imageRef ? (
-				<div className={$.image_wrapper}>
-					<ImageCraft
-						image={imageRef}
-						className={$.image}
-						sizes='100vw'
-						loading='eager'
-						fetchPriority='high'
-					/>
-					<div className={$.image_overlay} />
-				</div>
-			) : null}
 		</section>
 	)
 }

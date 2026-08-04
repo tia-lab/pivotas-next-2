@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: relatedLinks
+instructions: null
+name: 'Related Links'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 1b3a0bfc-3259-4500-a575-2449da58caa5 # Related Link
+        -
+          - group
+          - Links
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

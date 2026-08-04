@@ -11,10 +11,11 @@ type SectionSpacingStyle = CSSProperties & {
 	'--section-space-bottom'?: string
 }
 
+const DEFAULT_SPACING_VALUE = '-1'
 const spacingValuePattern = /^[0-9]+$/
 
 const getSectionSpaceVar = (value?: string | null) => {
-	if (!value || !spacingValuePattern.test(value)) {
+	if (!value || value === DEFAULT_SPACING_VALUE || !spacingValuePattern.test(value)) {
 		return undefined
 	}
 

@@ -10,13 +10,24 @@ settings:
       __assoc__:
         -
           - label
+          - Default
+        -
+          - value
+          - '-1'
+        -
+          - default
+          - true
+    -
+      __assoc__:
+        -
+          - label
           - '0'
         -
           - value
           - '0'
         -
           - default
-          - true
+          - false
     -
       __assoc__:
         -

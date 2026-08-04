@@ -1,7 +1,7 @@
 @use '../../styles/export.scss' as *;
 
 .section {
-	padding: $space-section3 0 $space-section1 0;
+	@include section-spacing;
 
 	.content {
 		grid-column: span 6;

@@ -5,11 +5,13 @@ import { useCursorInteraction, usePageTransition } from '@/hooks'
 import Link, { type LinkProps } from 'next/link'
 import { type AnchorHTMLAttributes, type MouseEvent } from 'react'
 
-type TransitionLinkProps = LinkProps &
-	Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> & {
-		children?: React.ReactNode
-		transition?: PageTransitionName
-	}
+export interface TransitionLinkProps
+	extends
+		LinkProps,
+		Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> {
+	children?: React.ReactNode
+	transition?: PageTransitionName
+}
 
 const shouldSkipTransition = (event: MouseEvent<HTMLAnchorElement>) => {
 	return (
@@ -72,8 +74,7 @@ export const TransitionLink = ({
 				})
 			}}
 			replace={replace}
-			{...props}
-		>
+			{...props}>
 			{children}
 		</Link>
 	)

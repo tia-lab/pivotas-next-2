@@ -47,6 +47,36 @@ export const SeoFragment = graphql(
       noIndex
       noFollow
     }
+
+    fragment ExpertiseSeoFragment on expertise_Entry {
+      seoTitle
+      seoDescription
+      seoImage {
+        ...AssetImageFragment
+      }
+      ogTitle
+      ogDescription
+      ogImage {
+        ...AssetImageFragment
+      }
+      noIndex
+      noFollow
+    }
+
+    fragment EventSeoFragment on event_Entry {
+      seoTitle
+      seoDescription
+      seoImage {
+        ...AssetImageFragment
+      }
+      ogTitle
+      ogDescription
+      ogImage {
+        ...AssetImageFragment
+      }
+      noIndex
+      noFollow
+    }
   `,
   [AssetImageFragment],
 );

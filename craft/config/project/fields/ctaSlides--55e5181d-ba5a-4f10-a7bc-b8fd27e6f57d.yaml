@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: ctaSlides
+instructions: null
+name: 'CTA Slides'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - e732f6f9-8122-46ba-ab0e-40990cf31a7b # CTA Slide
+        -
+          - group
+          - Slides
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

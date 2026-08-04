@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: ec269661-4594-4062-a2d7-dc2caf1bcc82 # Expertise
+handle: expertise
+maxAuthors: 1
+name: Expertise
+previewTargets:
+  -
+    label: 'Next Preview'
+    refresh: '1'
+    urlFormat: '$NEXT_PUBLIC_SITE_URL/api/preview?uri={uri}&secret=${CRAFT_PREVIEW_SECRET}'
+propagationMethod: all
+siteSettings:
+  1f9dcaf3-3f9d-4e81-996d-7bb1aefe81c8: # Ubiq Next
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'expertise/{slug}'
+structure:
+  maxLevels: null
+  uid: 8d76f0af-2cc1-4500-869d-6a1aa6e2f223
+type: structure

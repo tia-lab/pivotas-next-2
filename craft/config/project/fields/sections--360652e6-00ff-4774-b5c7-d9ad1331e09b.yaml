@@ -28,7 +28,7 @@ settings:
       __assoc__:
         -
           - uid
-          - 98055765-f8b4-4c53-8033-574ac496e7d5 # Section CTA
+          - 98055765-f8b4-4c53-8033-574ac496e7d5 # Section CTA Slider
         -
           - group
           - Sections
@@ -36,7 +36,7 @@ settings:
       __assoc__:
         -
           - uid
-          - 245952a8-f5b6-4e30-a19f-46338a68a53c # Section Content
+          - d8e0e1ac-ccfa-47a0-8342-b29270a8307e # Section CTA Text
         -
           - group
           - Sections
@@ -53,6 +53,70 @@ settings:
         -
           - uid
           - 597f5647-6a7f-43ea-ad1c-d9d5fcbd521e # Section News
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - 1846e99c-13ed-4174-9745-46d95e002e3c # Section Values
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - 2ef7a896-ac7b-40fc-b4d1-48eb76976258 # Section Expertise
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - e7610728-1427-49bb-a0eb-6d551bdae3ed # Section Services
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - 009ebc2b-18fe-4485-a27d-156d91a1d4ac # Section List
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - ba5af5e7-826d-4038-ada5-372bb4bb7b7b # Section Events
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - f5b15a0e-8bf3-45a4-ba38-2dfefd0b356f # Section News And Events
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - 6b058ab9-7af1-4f82-a103-4d806604cf63 # Section Team
+        -
+          - group
+          - Sections
+    -
+      __assoc__:
+        -
+          - uid
+          - e26f7668-a7f6-4f48-8919-177a5910c732 # Section Image Slider
         -
           - group
           - Sections

@@ -11,29 +11,48 @@ p {
 
 body,
 p,
-.text-p1 {
+.text-base {
 	font-family: $font-primary;
-	font-size: 1.15rem;
+	font-size: 1rem;
 	font-style: normal;
-	font-weight: 350;
-	line-height: 150%; /* 1.5rem */
+	font-weight: 200;
+	line-height: 140%; /* 28px */
 	//letter-spacing: -0.05rem;
 	@include mobile {
 	}
 }
 
-.text-2 {
-	font-size: 1rem;
-}
-
-.text-cpt {
+.text-small {
+	font-family: $font-primary;
 	font-size: 0.75rem;
 	font-style: normal;
-	font-weight: 400;
-	line-height: 100%;
-	letter-spacing: -0.015rem;
+	font-weight: 200;
+	line-height: 140%; /* 25.2px */
+}
+
+.text-cpt,
+.text-caption {
+	font-family: $font-primary;
+	font-size: 0.85rem;
+	font-style: normal;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 140%; /* 22.4px */
+	letter-spacing: 1.6px;
+	text-transform: uppercase;
+
 	@include mobile {
 	}
+}
+
+.text-button {
+	font-family: $font-primary;
+	font-size: 0.85rem;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 140%; /* 25.2px */
+	letter-spacing: 1.8px;
+	text-transform: uppercase;
 }
 
 .font-primary {
@@ -50,7 +69,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.title-h1,
+.title-h2,
+.title-h3,
+.title-h4,
+.title-h5,
+.title-h6 {
 	font-family: $font-secondary;
 }
 
@@ -69,57 +94,91 @@ h6 {
 
 h1,
 .title-h1 {
-	font-size: 3.625rem;
+	font-size: 4rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 120%; /* 4.35rem */
+	line-height: 110%; /* 70.4px */
+	letter-spacing: 3.2px;
+	text-transform: uppercase;
 	@include mobile {
-		font-size: 2.36875rem;
+		font-size: 2.625rem;
 		font-style: normal;
 		font-weight: 400;
-		line-height: 120%; /* 2.8425rem */
+		line-height: 110%; /* 46.2px */
+		letter-spacing: 2.1px;
+		text-transform: uppercase;
 	}
 }
 
 h2,
 .title-h2 {
-	font-size: 2.36875rem;
+	font-size: 2.625rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 120%; /* 2.8425rem */
+	line-height: 110%;
 	@include mobile {
-		font-size: 1.777rem;
+		font-size: 2.25rem;
 		font-style: normal;
 		font-weight: 400;
-		line-height: 120%; /* 2.13244rem */
+		line-height: 110%;
 	}
 }
 
 h3,
 .title-h3 {
-	font-size: 1.8125rem;
+	font-size: 2.25rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 120%;
+	line-height: 110%; /* 39.6px */
+	letter-spacing: 1.8px;
+	text-transform: uppercase;
 	@include mobile {
-		font-size: 1.33156rem;
+		font-size: 2rem;
 		font-style: normal;
 		font-weight: 400;
-		line-height: 120%; /* 1.59788rem */
+		line-height: 110%; /* 35.2px */
+		letter-spacing: 1.6px;
+		text-transform: uppercase;
 	}
 }
 
 h4,
 .title-h4 {
+	font-size: 2.25rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 110%;
+	@include mobile {
+		font-size: 1.5rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 110%;
+	}
+}
+h5,
+.title-h5 {
 	font-size: 1.375rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 140%; /* 1.925rem */
+	line-height: 110%;
 	@include mobile {
-		font-size: 1.175rem;
+		font-size: 1.25rem;
 		font-style: normal;
 		font-weight: 400;
-		line-height: 140%;
+		line-height: 110%;
+	}
+}
+h6,
+.title-h6 {
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 110%;
+	@include mobile {
+		font-size: 1.125rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 110%;
 	}
 }
 

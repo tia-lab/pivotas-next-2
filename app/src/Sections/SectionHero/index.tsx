@@ -1,6 +1,14 @@
 import { config } from '$/config'
-import { Anim, Container, ImageCraft, Parallax, Wrapper } from '@/Components'
+import {
+	Anim,
+	Button,
+	Container,
+	ImageCraft,
+	Parallax,
+	Wrapper
+} from '@/Components'
 import { RenderableSectionFragment } from '@/queries'
+import clsx from 'clsx'
 import type { FragmentOf } from 'gql.tada'
 import { readFragment } from 'gql.tada'
 import {
@@ -39,21 +47,55 @@ export const SectionHero = ({
 		<section className={$.section} style={sectionStyle} {...props}>
 			<Wrapper>
 				<Container>
-					<div className={$.content}>
+					<div className={$.title}>
 						{title ? (
-							<Anim.h1 type='fade-up' className='title-jumbo'>
+							<Anim.h1 type='fade-up' className='title-h2'>
 								{title}
 							</Anim.h1>
 						) : null}
+					</div>
+					<div className={$.desc}>
+						{data.description ? (
+							<Anim.p type='fade-up' vars={{ delay: config.animation.short / 1.5 }}>
+								{data.description}
+							</Anim.p>
+						) : null}
+						<div className={$.line} />
+					</div>
+				</Container>
+				<div className={$.spacer} />
+				<Container>
+					<div className={$.line_block}>
 						{data.subtitle ? (
 							<Anim.p
 								type='fade-up'
-								className='title-h3'
-								vars={{ delay: config.animation.short / 1.5 }}>
+								vars={{ delay: config.animation.short / 1.5 }}
+								className={clsx('text-cpt', $.subtitle)}>
 								{data.subtitle}
 							</Anim.p>
 						) : null}
+						<Anim.div type='fade' className={$.line} />
 					</div>
+					{data.links?.length ? (
+						<Anim.div type='fade-up' className={$.links}>
+							{data.links.map((link, index) => {
+								if (!link) {
+									return null
+								}
+
+								return (
+									<Button
+										transition='fade'
+										key={index}
+										variant='white-outline'
+										className={$.button}
+										link={link}
+										arrow={true}
+									/>
+								)
+							})}
+						</Anim.div>
+					) : null}
 				</Container>
 			</Wrapper>
 			<Parallax.div

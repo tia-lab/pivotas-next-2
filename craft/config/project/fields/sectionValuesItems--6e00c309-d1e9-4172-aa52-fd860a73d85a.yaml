@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: sectionValuesItems
+instructions: null
+name: 'Section Values Items'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 5b9e8bee-f478-4e6e-8e11-bf53c6adf6b1 # Value Item
+        -
+          - group
+          - Items
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

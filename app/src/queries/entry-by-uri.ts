@@ -1,5 +1,6 @@
 import { graphql } from '@/lib/craft/graphql'
 import { AssetImageFragment } from './fragments/asset'
+import { LinkFragment } from './fragments/link'
 import { SectionFragment } from './fragments/section'
 import { SeoFragment } from './fragments/seo'
 
@@ -15,6 +16,15 @@ export const EntryByUriQuery = graphql(
 				typeHandle
 				... on page_Entry {
 					...SeoFragment
+					image {
+						...AssetImageFragment
+					}
+					sections {
+						...SectionFragment
+					}
+				}
+				... on expertise_Entry {
+					...ExpertiseSeoFragment
 					image {
 						...AssetImageFragment
 					}
@@ -42,8 +52,43 @@ export const EntryByUriQuery = graphql(
 						html
 					}
 				}
+				... on event_Entry {
+					...EventSeoFragment
+					subtitle
+					eventDate
+					eventEndDate
+					caption
+					image {
+						...AssetImageFragment
+					}
+					entryAuthor {
+						... on teamMember_Entry {
+							__typename
+							id
+							firstName
+							lastName
+							role
+						}
+					}
+					richText {
+						html
+					}
+					gallery {
+						...AssetImageFragment
+					}
+					relatedLinks {
+						... on relatedLink_Entry {
+							id
+							title
+							subtitle
+							links {
+								...LinkFragment
+							}
+						}
+					}
+				}
 			}
 		}
 	`,
-	[AssetImageFragment, SectionFragment, SeoFragment]
+	[AssetImageFragment, LinkFragment, SectionFragment, SeoFragment]
 )

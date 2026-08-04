@@ -2,7 +2,7 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  9c28a5f1-e64a-446e-a192-cc01647c6cb3:
+  2e10d131-3bdc-432d-bf9d-638fa6617fbd:
     cardThumbAlignment: end
     tabs:
       -
@@ -32,7 +32,7 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: e42bee6c-5389-40e6-868b-28b57ca105e4
+            uid: 51e14688-17a6-434d-8948-7c1e445cc80b
             userCondition: null
             warning: null
             width: 100
@@ -48,7 +48,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e1539733-f8de-4a03-954f-147dda365679
+            uid: d6390679-8180-42e5-a7c8-29baf5475a79
             userCondition: null
             warning: null
             width: 100
@@ -57,14 +57,14 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: fe1e327f-f713-41a4-8ed3-eaac7c941b7b # Image
+            fieldUid: b2d1edb5-4b8c-42be-8296-841cab61ef56 # Caption
             handle: null
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b4e17424-dd2a-46d9-9276-3afee74d71ff
+            uid: 42bd8733-4680-4b61-a6d1-48c163d95afb
             userCondition: null
             warning: null
             width: 100
@@ -73,14 +73,14 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: f1720845-8ddc-4032-bddc-1cd1eb098b56 # Text
+            fieldUid: 7de1aa36-fe1f-4d28-b98e-4d1e7123d0e9 # Rich Text
             handle: null
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: fa07272d-79fd-43bd-a038-7da7c8032c5a
+            uid: 9f9981f9-3953-4ce9-bf2d-54fadc822b90
             userCondition: null
             warning: null
             width: 100
@@ -89,14 +89,14 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 6f4fd0ee-dca6-41bc-9a7d-a027e3e1077f # Links
+            fieldUid: dc4d4eed-0559-4bec-8d42-7fdfb693f8d3 # Images
             handle: null
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3d44c9b3-cb56-48f9-be63-08b12ee5f8af
+            uid: ed53a032-12b8-45a1-bc0d-ba5025819b65
             userCondition: null
             warning: null
             width: 100
@@ -112,7 +112,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3ad8f4d6-90ce-4c32-914a-4e67b21dce66
+            uid: 96deeb24-a5f8-4c73-a421-eecfb1be39bb
             userCondition: null
             warning: null
             width: 100
@@ -128,7 +128,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1170aa4f-e802-4aea-a0d4-b5a7ef67083f
+            uid: 03ef4a95-8a03-4a90-b3bf-7b4f4820468c
             userCondition: null
             warning: null
             width: 50
@@ -144,12 +144,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 6da58443-83c6-4e96-9224-d42eb0b32141
+            uid: a086d185-d2d0-469e-9535-4c6bb0ea755a
             userCondition: null
             warning: null
             width: 50
         name: Content
-        uid: 1bd3e24c-3067-41bb-8902-a0f537057cf1
+        uid: dc2bd2ac-7d35-4080-931a-5c637f1686d5
         userCondition: null
     thumbFieldKey: null
 handle: sectionAbout

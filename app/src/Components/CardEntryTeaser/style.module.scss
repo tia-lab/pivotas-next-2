@@ -1,0 +1,39 @@
+@use '../../styles/export.scss' as *;
+
+.article {
+	padding: 1.5rem;
+	border-bottom: 1px solid $color-secondary;
+	border-left: 1px solid $color-secondary;
+	height: 100%;
+
+	&:nth-child(1),
+	&:nth-child(2),
+	&:nth-child(3) {
+		border-top: 1px solid $color-secondary;
+	}
+
+	&:nth-child(1n) {
+		border-right: none;
+	}
+
+	&:nth-child(3n) {
+		border-right: 1px solid $color-secondary;
+	}
+}
+
+.title {
+	text-transform: uppercase;
+	margin-bottom: 1.5rem;
+	margin-top: 0.75rem;
+}
+
+.image_wrapper {
+	@include object-fit-wrap;
+	padding-top: 100%;
+	margin-bottom: 1.5rem;
+	max-height: 32rem;
+}
+
+.image {
+	@include object-fit;
+}

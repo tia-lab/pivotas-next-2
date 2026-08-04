@@ -1,12 +1,36 @@
 @use '../../styles/export.scss' as *;
 
 .section {
-	padding: $space-section3 0 $space-section1 0;
+	@include section-spacing;
 
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: $space-lg;
+		gap: 0;
+	}
+
+	.head {
+		grid-column: span 12;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-bottom: 4rem;
+
+		&.is_slider {
+			margin-bottom: 0rem;
+		}
+	}
+
+	.links {
+		margin-top: 3rem;
+		grid-column: span 12;
+		display: flex;
+		gap: $space-xs;
+		align-items: center;
+
+		&.is_slider {
+			margin-top: 1rem;
+		}
 	}
 }
 
@@ -22,25 +46,45 @@
 	display: contents;
 }
 
+.slider_slide {
+	[data-entry-teaser-card] {
+		border-left: 0;
+		border-right: 0;
+		box-shadow:
+			inset 1px 0 0 $color-secondary,
+			inset -1px 0 0 $color-secondary;
+	}
+}
+
 .slider_arrows {
 	grid-area: arrows;
 	display: flex;
-	gap: 2rem;
+	gap: 1rem;
 	align-items: center;
-	justify-content: flex-start;
-}
+	justify-content: flex-end;
 
-.slider_arrow {
-	border-color: $color-secondary;
-	color: $color-secondary;
-
-	&:hover {
-		background-color: $color-secondary;
+	.slider_arrow {
 		border-color: $color-secondary;
-	}
+		color: $color-secondary;
 
-	&:disabled {
-		opacity: 0.35;
+		svg {
+			width: 1rem !important;
+			height: 1rem !important;
+		}
+
+		&.slider_arrow_prev {
+			rotate: 180deg;
+		}
+
+		&:hover {
+			background-color: $color-secondary;
+			border-color: $color-secondary;
+			color: $color-primary;
+		}
+
+		&:disabled {
+			opacity: 0.35;
+		}
 	}
 }
 

@@ -1,12 +1,16 @@
-import { Anim, ImageCraft, TransitionLink, Wrapper } from '@/Components'
+import { CardNews } from '@/Components'
 import { getNews, type NewsOrder } from '@/lib/craft/queries'
 import { NewsIndexQuery, RenderableSectionFragment } from '@/queries'
 import type { FragmentOf, ResultOf } from 'gql.tada'
 import { readFragment } from 'gql.tada'
 import type { SectionComponentProps } from '../SectionRouter'
-import { getSectionSpacingStyle } from '../utils/section-spacing'
-import { NewsSlider } from './NewsSlider.client'
-import $ from './style.module.scss'
+import {
+	normalizeEntryLimit,
+	normalizeEntryOrder,
+	SectionEntryList,
+	type SectionEntryListLink
+} from '../utils/section-entry-list'
+import type { SectionSpacingSource } from '../utils/section-spacing'
 
 type SectionNewsEntry = Extract<
 	FragmentOf<typeof RenderableSectionFragment>,
@@ -21,14 +25,8 @@ type FallbackNewsItem = NonNullable<
 type NewsItemSource = SelectedNewsItem | FallbackNewsItem
 type NewsItem = Extract<NewsItemSource, { __typename: 'news_Entry' }>
 
-const normalizeLimit = (value: unknown) => {
-	const parsed = Number(value)
-
-	return Number.isFinite(parsed) && parsed > 0 ? parsed : 12
-}
-
 const normalizeOrder = (value: unknown): NewsOrder => {
-	return value === 'oldest' ? 'oldest' : 'newest'
+	return normalizeEntryOrder(value)
 }
 
 const isNewsItem = (item: unknown): item is NewsItem => {
@@ -39,71 +37,45 @@ const isNewsItem = (item: unknown): item is NewsItem => {
 	)
 }
 
-const NewsArticle = ({
-	item,
-	variant
-}: {
-	item: NewsItem
-	variant?: string | null
-}) => (
-	<TransitionLink
-		href={item.uri ?? '#'}
-		transition='fade'
-		className={$.article_link}>
-		<Anim.article
-			type={variant === 'slider' ? 'fade' : 'fade-up'}
-			key={item.id ?? item.uri}
-			className={$.article}>
-			{item.image?.[0] ? (
-				<div className={$.image_wrapper}>
-					<ImageCraft image={item.image[0]} className='object-fit' />
-				</div>
-			) : null}
-
-			<h3>{item.title}</h3>
-			<div>
-				{item.postDate ? (
-					<time className='text-2 font-secondary text-secondary-60'>
-						{item.postDate}
-					</time>
-				) : null}
-				{item.excerpt ? <p>{item.excerpt}</p> : null}
-			</div>
-		</Anim.article>
-	</TransitionLink>
-)
-
-const NewsList = ({
-	items,
-	variant
-}: {
-	items: NewsItem[]
-	variant?: string | null
-}) => {
-	const articles = items.map((item) => (
-		<NewsArticle key={item.id ?? item.uri} item={item} variant={variant} />
-	))
-
-	if (variant === 'slider') {
-		return <NewsSlider>{articles}</NewsSlider>
-	}
-
-	return <div className={$.grid}>{articles}</div>
-}
-
 const SectionNewsFallback = async ({
+	caption,
+	links,
 	limit,
 	order,
+	sectionId,
+	spacingSource,
+	title,
+	typeHandle,
 	variant
 }: {
+	caption?: string | null
+	links?: ReadonlyArray<SectionEntryListLink | null> | null
 	limit: number
 	order: NewsOrder
+	sectionId?: string | null
+	spacingSource: SectionSpacingSource
+	title?: string | null
+	typeHandle?: string | null
 	variant?: string | null
 }) => {
 	const data = await getNews(limit, order)
 	const items = (data.entries?.filter(isNewsItem) ?? []) as NewsItem[]
 
-	return <NewsList items={items} variant={variant} />
+	return (
+		<SectionEntryList
+			caption={caption}
+			items={items}
+			links={links}
+			renderItem={(item) => (
+				<CardNews key={item.id ?? item.uri} item={item} variant={variant} />
+			)}
+			sectionId={sectionId}
+			spacingSource={spacingSource}
+			title={title}
+			typeHandle={typeHandle}
+			variant={variant}
+		/>
+	)
 }
 
 export const SectionNews = ({
@@ -120,25 +92,33 @@ export const SectionNews = ({
 	const selectedNews = (data.selectedNews?.filter(isNewsItem) ??
 		[]) as NewsItem[]
 
-	return (
-		<section
-			data-section-id={data.id ?? undefined}
-			data-section-type={data.typeHandle ?? undefined}
-			data-news-variant={data.newsVariant ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}
-			className={$.section}>
-			<Wrapper fluid={data.newsVariant === 'slider' ? 'right' : undefined}>
-				<Anim.h2 className='mb-md'>{data.title}</Anim.h2>
-				{selectedNews.length ? (
-					<NewsList items={selectedNews} variant={data.newsVariant} />
-				) : (
-					<SectionNewsFallback
-						limit={normalizeLimit(data.itemsLimit)}
-						order={normalizeOrder(data.orderBy)}
-						variant={data.newsVariant}
-					/>
+	const commonProps = {
+		caption: data.caption,
+		links: data.links,
+		sectionId: data.id,
+		spacingSource,
+		title: data.title,
+		typeHandle: data.typeHandle,
+		variant: data.newsVariant
+	}
+
+	if (selectedNews.length) {
+		return (
+			<SectionEntryList
+				{...commonProps}
+				items={selectedNews}
+				renderItem={(item) => (
+					<CardNews key={item.id ?? item.uri} item={item} variant={data.newsVariant} />
 				)}
-			</Wrapper>
-		</section>
+			/>
+		)
+	}
+
+	return (
+		<SectionNewsFallback
+			{...commonProps}
+			limit={normalizeEntryLimit(data.itemsLimit)}
+			order={normalizeOrder(data.orderBy)}
+		/>
 	)
 }

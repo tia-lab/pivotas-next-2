@@ -1,25 +1,25 @@
 @use '../../styles/export.scss' as *;
 
 .section {
-	padding: var(--section-space-top, 10rem) 0 var(--section-space-bottom, 10rem);
+	padding: var(--section-space-top, 10rem) 0 var(--section-space-bottom, 4rem);
 	height: 100vh;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 
-	.content {
-		grid-column: span 10;
+	.title {
+		grid-column: span 8;
 		color: $color-white;
-
-		@include mobile {
-			grid-column: span 12;
-		}
-
-		display: flex;
-		flex-direction: column;
-		gap: $space-md;
+		padding-right: $space-sm;
+	}
+	.desc {
+		grid-column: span 4;
+		color: $color-white;
 	}
 	.image {
 		position: absolute;
@@ -31,6 +31,36 @@
 		overflow: hidden;
 		transform-origin: center;
 		will-change: transform;
+	}
+
+	.line_block {
+		grid-column: span 8;
+		color: $color-white;
+		display: flex;
+		gap: $space-sm;
+		align-items: center;
+
+		.subtitle {
+			white-space: nowrap;
+		}
+		.line {
+			width: 100%;
+			height: 1px;
+			background: $color-white;
+			margin-right: $space-sm;
+		}
+	}
+
+	.spacer {
+		margin-top: 6rem;
+	}
+
+	.links {
+		grid-column: span 4;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: $space-xs;
 	}
 
 	.image_media {
@@ -46,6 +76,12 @@
 		top: 0;
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 0, 0, 0.7);
+		background:
+			linear-gradient(
+				180deg,
+				rgba(11, 35, 60, 0) 0%,
+				var(--Corporate-Base, rgba(11, 35, 60, 0.2)) 100%
+			),
+			linear-gradient(0deg, rgba(11, 35, 60, 0.6) 0%, rgba(11, 35, 60, 0.6) 100%);
 	}
 }

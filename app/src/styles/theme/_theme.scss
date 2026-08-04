@@ -1,6 +1,6 @@
 @use '../export.scss' as *;
 
-@include fluid-responsive(16, 19, 1440, 1700, false, true);
+@include fluid-responsive(14, 24, 768, 1800, false, true);
 @include fluid-responsive(15.5, 26, 400, 767, false, false);
 
 html {

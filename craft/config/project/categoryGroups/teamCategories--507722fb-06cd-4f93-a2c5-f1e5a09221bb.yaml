@@ -1,0 +1,50 @@
+defaultPlacement: end
+fieldLayouts:
+  f5ebf49a-8219-41e8-9b1b-f4845fbdfc4b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: cdd26edb-19a8-4f44-8374-86b0a94e00e0
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e664e4ce-1703-4b18-be4b-d1c617d88055
+        userCondition: null
+    thumbFieldKey: null
+handle: teamCategories
+name: 'Team Categories'
+siteSettings:
+  1f9dcaf3-3f9d-4e81-996d-7bb1aefe81c8: # Ubiq Next
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: a96790a9-69f8-432c-88ae-590a8c144758
