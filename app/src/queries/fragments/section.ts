@@ -2,6 +2,7 @@ import { graphql } from '@/lib/craft/graphql'
 import { AssetImageFragment } from './asset'
 import { FreeformFormFragment } from './freeform'
 import { LinkFragment } from './link'
+import { ServiceFragment } from './service'
 
 export const RenderableSectionFragment = graphql(
 	`
@@ -217,9 +218,7 @@ export const RenderableSectionFragment = graphql(
 				selectedServices {
 					... on service_Entry {
 						__typename
-						id
-						title
-						description
+						...ServiceFragment
 					}
 				}
 				customSpacing
@@ -318,7 +317,7 @@ export const RenderableSectionFragment = graphql(
 			}
 		}
 	`,
-	[AssetImageFragment, FreeformFormFragment, LinkFragment]
+	[AssetImageFragment, FreeformFormFragment, LinkFragment, ServiceFragment]
 )
 
 export const SectionFragment = graphql(

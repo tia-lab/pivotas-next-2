@@ -9,6 +9,7 @@ import { ResultOf } from 'gql.tada'
 import { useEffect, useRef, useState } from 'react'
 import { ImageCraft } from '../ImageCraft'
 import { LinkArrow } from '../LinkArrow'
+import { TransitionLink } from '../TransitionLink'
 import $ from './style.module.scss'
 
 type TeamCardData = Extract<
@@ -60,22 +61,23 @@ export const CardTeamMember = ({ item }: CardTeamMemberProps) => {
 					<ImageCraft image={item.image[0]} className={$.image} data-image />
 				</div>
 			) : null}
-
-			<div
-				data-card-content
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
-				className={clsx($.content)}>
-				<div className={clsx($.badge, 'text-button')}>{item.expertiseLabel}</div>
-				<div>
-					{item.firstName ? <div className='title-h4'>{item.firstName}</div> : null}
-					{item.lastName ? <div className='title-h4'>{item.lastName}</div> : null}
+			<TransitionLink href={'/team/' + item.slug} className={clsx($.link)}>
+				<div
+					data-card-content
+					onMouseEnter={() => setHover(true)}
+					onMouseLeave={() => setHover(false)}
+					className={clsx($.content)}>
+					<div className={clsx($.badge, 'text-button')}>{item.expertiseLabel}</div>
+					<div>
+						{item.firstName ? <div className='title-h4'>{item.firstName}</div> : null}
+						{item.lastName ? <div className='title-h4'>{item.lastName}</div> : null}
+					</div>
+					<h5 className={clsx('text-button')}>{item.role}</h5>
+					{href ? (
+						<LinkArrow title='Read More' href={href} aria-label='Read More' />
+					) : null}
 				</div>
-				<h5 className={clsx('text-button')}>{item.role}</h5>
-				{href ? (
-					<LinkArrow title='Read More' href={href} aria-label='Read More' />
-				) : null}
-			</div>
+			</TransitionLink>
 		</article>
 	)
 }

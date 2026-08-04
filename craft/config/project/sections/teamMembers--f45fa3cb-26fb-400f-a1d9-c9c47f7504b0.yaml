@@ -10,7 +10,7 @@ propagationMethod: all
 siteSettings:
   1f9dcaf3-3f9d-4e81-996d-7bb1aefe81c8: # Ubiq Next
     enabledByDefault: true
-    hasUrls: false
+    hasUrls: true
     template: null
-    uriFormat: null
+    uriFormat: 'team/{slug}'
 type: channel

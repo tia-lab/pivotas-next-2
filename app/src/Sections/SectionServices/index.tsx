@@ -1,14 +1,9 @@
+import { CardService, Container, Wrapper } from '@/Components'
 import { RenderableSectionFragment } from '@/queries'
 import { readFragment } from 'gql.tada'
 import type { SectionComponentProps } from '../SectionRouter'
-import { ListSectionView } from '../SectionList'
-
-const isServiceItem = (
-	item: unknown
-): item is { description?: string | null; id?: string | null; title?: string | null } =>
-	typeof item === 'object' &&
-	item !== null &&
-	(item as { __typename?: string }).__typename === 'service_Entry'
+import { getSectionSpacingStyle } from '../utils/section-spacing'
+import $ from './style.module.scss'
 
 export const SectionServices = ({
 	section,
@@ -21,26 +16,29 @@ export const SectionServices = ({
 	}
 
 	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
-	const items = (data.selectedServices ?? []).flatMap((item) =>
-		isServiceItem(item)
-			? [
-					{
-						description: item.description,
-						id: item.id,
-						title: item.title
-					}
-				]
-			: []
-	)
+	const items = data.selectedServices ?? []
 
 	return (
-		<ListSectionView
-			caption={data.caption}
-			items={items}
-			sectionId={data.id}
-			spacingSource={spacingSource}
-			title={data.title}
-			typeHandle={data.typeHandle}
-		/>
+		<section
+			className={$.section}
+			data-section-id={data.id ?? undefined}
+			data-section-type={data.typeHandle ?? undefined}
+			style={getSectionSpacingStyle(spacingSource)}>
+			<Wrapper>
+				<Container>
+					<div className={$.head}>
+						{data.caption ? <p className='text-caption'>{data.caption}</p> : null}
+						{data.title ? <h2>{data.title}</h2> : null}
+					</div>
+					<div className={$.list}>
+						{items.map((item, index) =>
+							item?.__typename === 'service_Entry' ? (
+								<CardService data={item} key={index} />
+							) : null
+						)}
+					</div>
+				</Container>
+			</Wrapper>
+		</section>
 	)
 }

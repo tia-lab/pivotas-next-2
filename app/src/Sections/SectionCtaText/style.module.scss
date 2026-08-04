@@ -1,21 +1,56 @@
 @use '../../styles/export.scss' as *;
 
 .section {
-	@include section-spacing;
+	padding: 1.5rem 1.5rem;
+	background-color: $color-secondary;
+
+	.frame {
+		background-color: $color-greydefault;
+	}
+
+	.container {
+		background-color: $color-greydefault;
+	}
 
 	.content {
 		grid-column: 2 / span 10;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 1.5rem;
+		gap: 2rem;
+		padding: 8.75rem 0;
+
+		.logo {
+			width: 5rem;
+			height: 5rem;
+		}
 	}
 
-	.links {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		margin-top: 0.5rem;
+	.textWrapper {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 2rem;
+		align-items: center;
+		width: 100%;
+		.text {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			text-wrap: nowrap;
+
+			.line {
+				width: 100%;
+				height: 1px;
+				background-color: $color-secondary;
+			}
+		}
+
+		.links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+			margin-top: 0.5rem;
+		}
 	}
 
 	@include mobile {

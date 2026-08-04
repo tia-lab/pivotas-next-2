@@ -13,6 +13,7 @@ export const TeamIndexQuery = graphql(
 					firstName
 					lastName
 					role
+					slug
 					expertiseLabel
 					image {
 						...AssetImageFragment

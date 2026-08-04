@@ -13,7 +13,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: null
+            dateAdded: '2026-08-04T15:51:57+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -37,7 +37,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2026-08-04T15:51:57+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -49,38 +49,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 74ad3a7d-6771-43d4-861b-84b6409180f4
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: fe1e327f-f713-41a4-8ed3-eaac7c941b7b # Image
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b3cdaeb7-b671-49ec-b7f5-3b6b2dafdac8
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 6f4fd0ee-dca6-41bc-9a7d-a027e3e1077f # Links
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 41eea870-8754-47e3-8f47-93e5f4b5391e
             userCondition: null
             warning: null
             width: 100

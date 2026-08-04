@@ -1,4 +1,4 @@
-import { Anim, Button, Wrapper } from '@/Components'
+import { Anim, Button, Container, Svgs, Wrapper } from '@/Components'
 import { RenderableSectionFragment } from '@/queries'
 import clsx from 'clsx'
 import { readFragment } from 'gql.tada'
@@ -27,25 +27,41 @@ export const SectionCtaText = ({
 			data-section-type={data.typeHandle ?? undefined}
 			style={getSectionSpacingStyle(spacingSource)}
 			className={clsx('section', $.section)}>
-			<Wrapper container>
-				<div className={$.content}>
-					{data.title ? <Anim.h2 type='fade-up'>{data.title}</Anim.h2> : null}
-					{data.text ? <Anim.p type='fade-up'>{data.text}</Anim.p> : null}
-					{links?.length ? (
-						<Anim.div type='fade-up' className={$.links}>
-							{links.map((link, index) => (
-								<Button
-									key={index}
-									link={link}
-									arrow={true}
-									transition='fade'
-									variant='outline'
-								/>
-							))}
-						</Anim.div>
-					) : null}
-				</div>
-			</Wrapper>
+			<div className={$.frame}>
+				<Wrapper>
+					<Container className={$.container}>
+						<div className={$.content}>
+							<div className={$.logo}>
+								<Svgs type='logoRound' />
+							</div>
+							{data.title ? (
+								<Anim.h2 type='fade-up' className='text-style-uppercase'>
+									{data.title}
+								</Anim.h2>
+							) : null}
+							<div className={$.textWrapper}>
+								<div className={$.text}>
+									{data.text ? <Anim.p type='fade-up'>{data.text}</Anim.p> : null}
+									<div className={$.line} />
+								</div>
+								{links?.length ? (
+									<Anim.div type='fade-up' className={$.links}>
+										{links.map((link, index) => (
+											<Button
+												key={index}
+												link={link}
+												arrow={true}
+												transition='fade'
+												variant='outline'
+											/>
+										))}
+									</Anim.div>
+								) : null}
+							</div>
+						</div>
+					</Container>
+				</Wrapper>
+			</div>
 		</section>
 	)
 }
