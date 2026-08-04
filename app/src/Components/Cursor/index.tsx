@@ -106,27 +106,31 @@ export const Cursor = () => {
 			const variantVars: Record<CursorVariant, gsap.TweenVars> = {
 				default: {
 					autoAlpha: 1,
-					width: '1rem',
-					height: '1rem',
-					backgroundColor: colors.accent
+					width: '0.5rem',
+					height: '0.5rem',
+					backgroundColor: colors.accent,
+					borderColor: colors.accent
 				},
 				hover: {
 					autoAlpha: 1,
-					width: '2.5rem',
-					height: '2.5rem',
-					backgroundColor: colors.accentW60
+					width: '4.5rem',
+					height: '4.5rem',
+					backgroundColor: colors.accentAlpha0,
+					borderColor: colors.accentAlpha40
 				},
 				active: {
 					autoAlpha: 1,
 					width: '1.75rem',
 					height: '1.75rem',
-					backgroundColor: colors.accent
+					backgroundColor: colors.accent,
+					borderColor: colors.accent
 				},
 				hidden: {
 					autoAlpha: 0,
 					width: '1rem',
 					height: '1rem',
-					backgroundColor: colors.accent
+					backgroundColor: colors.accent,
+					borderColor: colors.accent
 				}
 			}
 			const vars = {
@@ -141,7 +145,7 @@ export const Cursor = () => {
 
 			gsap.to(cursor, {
 				...vars,
-				duration: config.animation.short,
+				duration: config.animation.default,
 				ease: 'power2.out'
 			})
 		},

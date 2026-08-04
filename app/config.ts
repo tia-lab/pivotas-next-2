@@ -1,4 +1,3 @@
-import { StateTheme } from '@/store/theme'
 import { LenisOptions } from 'lenis'
 import { vars } from './src/styles/vars.generated'
 
@@ -32,7 +31,7 @@ export const config = {
 		enabled: true
 	},
 	theme: {
-		enabled: true,
-		default: 'dark' as StateTheme['theme']
+		enabled: false,
+		default: 'default' as keyof typeof vars.colors.themes
 	}
 }

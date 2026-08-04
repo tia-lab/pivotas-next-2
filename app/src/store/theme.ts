@@ -2,8 +2,10 @@ import { config } from '$/config'
 import { createStore } from 'zustand'
 import { persist } from 'zustand/middleware'
 
+type ThemeName = keyof typeof config.colors.themes
+
 export type StateTheme = {
-	theme: 'light' | 'dark'
+	theme: ThemeName
 }
 
 type Action = {
@@ -20,7 +22,13 @@ export const useThemeStore = createStore<Themetore>()(
 			theme: config.theme.default,
 			updateTheme: (theme) => set(() => ({ theme: theme })),
 			switchTheme: () =>
-				set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' }))
+				set((state) => {
+					const themes = Object.keys(config.colors.themes) as ThemeName[]
+					const currentIndex = themes.indexOf(state.theme)
+					const nextTheme = themes[(currentIndex + 1) % themes.length] ?? state.theme
+
+					return { theme: nextTheme }
+				})
 		}),
 		{ name: 'theme' }
 	)

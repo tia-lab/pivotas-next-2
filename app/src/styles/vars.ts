@@ -20,20 +20,19 @@ const responsiveBase = 'desktop'
 const responsive = createResponsive(breakpoints, responsiveBase)
 
 export const themes = defineThemes({
-	light: {
+	default: {
 		default: true
-	},
-	dark: {}
+	}
 })
 
-const themed = createThemed(themes, 'light', {
+const themed = createThemed(themes, 'default', {
 	alpha: true,
 	palette: true
 })
 
 const space = {
 	global: responsive({
-		desktop: rem(4),
+		desktop: rem(1.5),
 		mobile: rem(1.25)
 	}),
 	'2xs': responsive({
@@ -80,47 +79,38 @@ const space = {
 	}),
 
 	section3: responsive({
-		desktop: rem(10),
+		desktop: rem(8.75),
 		mobile: rem(5)
 	})
 } as const
 
 const colors = {
 	primary: themed({
-		light: hex('#f7f7f2'),
-		dark: hex('#080f11')
+		default: hex('#FFF')
 	}),
 	secondary: themed({
-		light: hex('#080f11'),
-		dark: hex('#f7f7f2')
+		default: hex('#0B233C')
 	}),
 	accent: themed({
-		light: hex('#bc4749'),
-		dark: hex('#48d597')
+		default: hex('#2977BA')
 	}),
-	grey: themed({
-		light: hex('#999999'),
-		dark: hex('#999999')
+	greydefault: themed({
+		default: hex('#E2E8F1')
 	}),
-	stroke: themed({
-		light: hex('#080f11'),
-		dark: hex('#f4f0e1')
+	greyMid: themed({
+		default: hex('#90A2B9')
 	}),
 	white: themed({
-		light: hex('#f7f7f2'),
-		dark: hex('#f7f7f2')
+		default: hex('#FFF')
 	}),
 	black: themed({
-		light: hex('#080f11'),
-		dark: hex('#080f11')
+		default: hex('#0B233C')
 	}),
 	success: themed({
-		light: hex('#48d597'),
-		dark: hex('#48d597')
+		default: hex('#48d597')
 	}),
 	error: themed({
-		light: hex('#bc4749'),
-		dark: hex('#bc4749')
+		default: hex('#D00255')
 	})
 } as const
 
