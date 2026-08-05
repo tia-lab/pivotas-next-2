@@ -7,9 +7,9 @@ export const config = {
 		long: vars.durations.long,
 		short: vars.durations.short,
 		ease: {
-			out: "'power2.out'",
-			in: "'power2.in'",
-			inOut: "'power2.inOut'"
+			out: 'power2.out',
+			in: 'power2.in',
+			inOut: 'power2.inOut'
 		}
 	},
 	breakpoints: vars.breakpoints,
