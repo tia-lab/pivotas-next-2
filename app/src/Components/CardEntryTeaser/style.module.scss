@@ -5,6 +5,8 @@
 	border-bottom: 1px solid $color-secondary;
 	border-left: 1px solid $color-secondary;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 
 	&:nth-child(1),
 	&:nth-child(2),
@@ -19,21 +21,27 @@
 	&:nth-child(3n) {
 		border-right: 1px solid $color-secondary;
 	}
-}
+	.title {
+		text-transform: uppercase;
+		margin-bottom: 1.5rem;
+		margin-top: 0.75rem;
+	}
 
-.title {
-	text-transform: uppercase;
-	margin-bottom: 1.5rem;
-	margin-top: 0.75rem;
-}
+	.image_wrapper {
+		@include object-fit-wrap;
+		padding-top: 100%;
+		margin-bottom: 1.5rem;
+		max-height: 32rem;
+	}
 
-.image_wrapper {
-	@include object-fit-wrap;
-	padding-top: 100%;
-	margin-bottom: 1.5rem;
-	max-height: 32rem;
-}
+	.image {
+		@include object-fit;
+	}
 
-.image {
-	@include object-fit;
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-grow: 1;
+	}
 }

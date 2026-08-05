@@ -69,13 +69,16 @@ export const CardEntryTeaser = ({ item }: CardEntryTeaserProps) => {
 			<div
 				data-card-content
 				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}>
-				{item.subtitle ? (
-					<p className='text-caption'>{item.subtitle}</p>
-				) : item.date ? (
-					<p className='text-caption'>{formatDate(item.date)}</p>
-				) : null}
-				<h5 className={$.title}>{item.title}</h5>
+				onMouseLeave={() => setHover(false)}
+				className={clsx($.content)}>
+				<div>
+					{item.subtitle ? (
+						<p className='text-caption'>{item.subtitle}</p>
+					) : item.date ? (
+						<p className='text-caption'>{formatDate(item.date)}</p>
+					) : null}
+					<h5 className={$.title}>{item.title}</h5>
+				</div>
 				<LinkArrow title='Read More' href={href} aria-label='Read More' />
 			</div>
 		</article>

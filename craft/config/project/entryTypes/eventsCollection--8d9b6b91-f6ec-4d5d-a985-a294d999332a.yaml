@@ -2,85 +2,89 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  05b8ca30-b9f4-496a-82d8-d6c219460dcb:
+  14b3e6ee-55d2-4f37-8501-f7dfe0ca11e3:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            autocapitalize: true
-            autocomplete: false
-            autocorrect: true
-            class: null
-            dateAdded: null
-            disabled: false
-            elementCondition: null
-            id: null
-            inputType: null
-            instructions: null
-            label: null
-            max: null
-            min: null
-            name: null
-            orientation: null
-            placeholder: null
-            readonly: false
-            required: true
-            size: null
-            step: null
-            tip: null
-            title: null
-            type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 19782c4c-c3f6-490f-ab4c-56e832e7e0e4
-            userCondition: null
-            warning: null
-            width: 100
-          -
             dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 3af62cab-8b90-42ca-b80f-cd57a4fca5d5 # Subtitle
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: a68b1923-e3d2-4ca5-aa98-163879f34339
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: fe1e327f-f713-41a4-8ed3-eaac7c941b7b # Image
+            fieldUid: bec6e3e1-64de-4ba9-9a24-8a6ff66efe2e # Items Limit
             handle: null
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e9e7e1c4-7d70-4769-9457-8a91e7cc51fb
+            uid: 7f0029a7-1698-4ebe-a2ed-e34e7af6b4c3
             userCondition: null
             warning: null
-            width: 100
-        name: Content
-        uid: 9f1f2899-19ff-441c-bdf5-10cf7cf89aa8
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: afcfeefb-37c5-467b-acb1-5c19ae4588ca # Items Per Page
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d37947bf-4670-46bc-b365-549e545f6d93
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 028c68a9-8240-4b8c-94d5-bca16475d037 # Collection Order By
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c9ceca01-544f-4dec-b503-7bc56399d2fa
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 02738ded-dcec-472d-97d9-d171c58653b1 # Events Scope
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3e184832-6665-4561-bc7e-0fcd87d4b032
+            userCondition: null
+            warning: null
+            width: 25
+        name: Collection
+        uid: b813d138-3133-48fc-bdaa-796c29a09c5d
         userCondition: null
     thumbFieldKey: null
-handle: imageSlide
-hasTitleField: true
-icon: image
-name: 'Image Slide'
+handle: eventsCollection
+hasTitleField: false
+icon: calendar
+name: 'Events Collection'
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: null
+titleFormat: Events
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 uiLabelFormat: '{title}'

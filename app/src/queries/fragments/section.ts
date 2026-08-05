@@ -225,66 +225,6 @@ export const RenderableSectionFragment = graphql(
 				spaceTop
 				spaceBottom
 			}
-			... on sectionList_Entry {
-				id
-				title
-				caption
-				typeHandle
-				sectionListItems {
-					... on listItem_Entry {
-						__typename
-						id
-						title
-						description
-					}
-				}
-				customSpacing
-				spaceTop
-				spaceBottom
-			}
-			... on sectionValues_Entry {
-				id
-				title
-				caption
-				typeHandle
-				sectionValuesItems {
-					... on valueItem_Entry {
-						__typename
-						id
-						title
-						image {
-							...AssetImageFragment
-						}
-						richText {
-							html
-						}
-					}
-				}
-				customSpacing
-				spaceTop
-				spaceBottom
-			}
-			... on sectionImageSlider_Entry {
-				id
-				title
-				caption
-				typeHandle
-				sectionVariant
-				sectionImageSliderItems {
-					... on imageSlide_Entry {
-						__typename
-						id
-						title
-						subtitle
-						image {
-							...AssetImageFragment
-						}
-					}
-				}
-				customSpacing
-				spaceTop
-				spaceBottom
-			}
 			... on sectionTeam_Entry {
 				id
 				title

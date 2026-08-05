@@ -1,17 +1,29 @@
 import { craftQuery } from '@/lib/craft/client'
 import { ExpertiseIndexQuery } from '@/queries'
 
-export type ExpertiseOrder = 'newest' | 'oldest'
+export type ExpertiseOrder =
+	| 'structure'
+	| 'newest'
+	| 'oldest'
+	| 'titleAsc'
+	| 'titleDesc'
 
 const expertiseOrderBy: Record<ExpertiseOrder, string> = {
+	structure: 'lft ASC',
 	newest: 'postDate DESC',
-	oldest: 'postDate ASC'
+	oldest: 'postDate ASC',
+	titleAsc: 'title ASC',
+	titleDesc: 'title DESC'
 }
 
-export const getExpertise = (limit = 12, order: ExpertiseOrder = 'newest') => {
+export const getExpertise = (
+	limit: number | null = 12,
+	order: ExpertiseOrder = 'newest',
+	offset = 0
+) => {
 	return craftQuery(
 		ExpertiseIndexQuery,
-		{ limit, orderBy: expertiseOrderBy[order] },
+		{ limit, offset, orderBy: expertiseOrderBy[order] },
 		{
 			tags: [
 				'craft',

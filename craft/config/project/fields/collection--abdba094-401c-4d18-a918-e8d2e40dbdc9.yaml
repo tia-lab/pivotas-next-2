@@ -1,0 +1,53 @@
+columnSuffix: null
+handle: collection
+instructions: 'Choose exactly one collection to render on this page.'
+name: Collection
+searchable: false
+settings:
+  createButtonLabel: 'Choose a collection'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 4c12bdf9-f8b7-4605-8d4b-eb70638cd78e # News Collection
+        -
+          - group
+          - Collections
+    -
+      __assoc__:
+        -
+          - uid
+          - 8d9b6b91-f6ec-4d5d-a985-a294d999332a # Events Collection
+        -
+          - group
+          - Collections
+    -
+      __assoc__:
+        -
+          - uid
+          - d45ab57e-8838-4541-b3e7-017bc3e89fc7 # Expertise Collection
+        -
+          - group
+          - Collections
+    -
+      __assoc__:
+        -
+          - uid
+          - 783eb534-1acf-40e9-9f8c-f631f2e038e6 # Team Collection
+        -
+          - group
+          - Collections
+  includeTableView: false
+  maxEntries: 1
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

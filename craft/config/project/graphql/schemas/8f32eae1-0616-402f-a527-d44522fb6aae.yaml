@@ -28,11 +28,10 @@ scope:
   - 'sections.f45fa3cb-26fb-400f-a1d9-c9c47f7504b0:read' # Team Members
   - 'sections.b47c14a1-1115-4cf7-8d10-0f81c1f34c52:read' # Events
   - 'sections.03f4831e-7eb9-43d9-afdd-7831d4a2c11b:read' # Expertise
-  - 'sections.89014962-23fe-4fad-85c0-5f848ead2b72:read' # Help Center
   - 'nestedentryfields.27138272-d22e-47c6-87e0-48c80581d80f:read' # Related Links
-  - 'nestedentryfields.6e00c309-d1e9-4172-aa52-fd860a73d85a:read' # Section Values Items
-  - 'nestedentryfields.7011e472-8f55-46a5-b109-a8b03d874582:read' # Section Image Slider Items
+  - 'nestedentryfields.ddaaf76d-17ae-425d-bed5-2d8c1c70cc52:read' # Legal Items
+  - 'nestedentryfields.d53bb36f-6fa0-4a78-8059-02622005bcfd:read' # Accordion Items
+  - 'nestedentryfields.abdba094-401c-4d18-a918-e8d2e40dbdc9:read' # Collection
   - 'categorygroups.507722fb-06cd-4f93-a2c5-f1e5a09221bb:read' # Team Categories
   - 'nestedentryfields.55e5181d-ba5a-4f10-a7bc-b8fd27e6f57d:read' # CTA Slides
   - 'nestedentryfields.319aaf82-22ec-4714-9b18-84501766a0ac:read'
-  - 'nestedentryfields.e16ad046-6c04-412f-927a-ccbef3b6a319:read' # List Items

@@ -14,13 +14,10 @@ import { SectionCtaText } from './SectionCtaText'
 import { SectionEvents } from './SectionEvents'
 import { SectionExpertise } from './SectionExpertise'
 import { SectionHero } from './SectionHero'
-import { SectionImageSlider } from './SectionImageSlider'
-import { SectionList } from './SectionList'
 import { SectionNews } from './SectionNews'
 import { SectionNewsEvents } from './SectionNewsEvents'
 import { SectionServices } from './SectionServices'
 import { SectionTeam } from './SectionTeam'
-import { SectionValues } from './SectionValues'
 import type { SectionSpacingSource } from './utils/section-spacing'
 
 type Section = FragmentOf<typeof SectionFragment>
@@ -42,16 +39,13 @@ const sectionComponents: Record<string, SectionComponent> = {
 	sectionContact_Entry: SectionContact,
 	sectionCta_Entry: SectionCtaSlider,
 	sectionHero_Entry: SectionHero,
-	sectionImageSlider_Entry: SectionImageSlider,
-	sectionList_Entry: SectionList,
 	sectionNews_Entry: SectionNews,
 	sectionEvents_Entry: SectionEvents,
 	sectionNewsEvents_Entry: SectionNewsEvents,
 	sectionExpertise_Entry: SectionExpertise,
 	sectionServices_Entry: SectionServices,
 	sectionTeam_Entry: SectionTeam,
-	sectionTextCta_Entry: SectionCtaText,
-	sectionValues_Entry: SectionValues
+	sectionTextCta_Entry: SectionCtaText
 }
 
 const renderRenderableSection = (

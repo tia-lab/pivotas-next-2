@@ -2,7 +2,7 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  03bba916-63c3-4d24-80df-9008a5545c0a:
+  dc6c0ea1-526b-4423-8363-91664ff89cdb:
     cardThumbAlignment: end
     tabs:
       -
@@ -32,7 +32,7 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 8cf92812-2463-4c11-a9fe-4fe3e5639938
+            uid: 2a780d67-4247-4c8b-bb09-3613c96acc84
             userCondition: null
             warning: null
             width: 100
@@ -48,19 +48,35 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 49d8c8bf-f0c7-4a0f-9482-cded33017c9e
+            uid: 57bf8dc4-a939-4c62-bad2-231083a73578
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d53bb36f-6fa0-4a78-8059-02622005bcfd # Accordion Items
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a6d2c577-648a-4a72-83e0-19f2494debb2
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 067c30b9-53c6-468f-8437-bb5c2524f667
+        uid: e0cc8011-c99b-4342-a4ab-41e91b9a7499
         userCondition: null
     thumbFieldKey: null
-handle: faq
+handle: legalItem
 hasTitleField: true
-icon: circle-question
-name: FAQ
-showSlugField: true
+icon: scale-balanced
+name: 'Legal Item'
+showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

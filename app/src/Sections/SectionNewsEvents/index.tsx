@@ -60,7 +60,7 @@ export const SectionNewsEvents = ({
 			style={getSectionSpacingStyle(spacingSource)}
 			className={$.section}>
 			<Wrapper>
-				<Anim.h2 className={clsx('title-h1', $.title)}>{data.title}</Anim.h2>
+				<Anim.h2 className={clsx($.title)}>{data.title}</Anim.h2>
 				<div className={clsx($.grid, $.is_news)}>
 					{selectedNews.map((item) => (
 						<CardNews key={item.id ?? item.uri} item={item} data-card />

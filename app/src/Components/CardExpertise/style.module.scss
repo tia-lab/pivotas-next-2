@@ -16,4 +16,18 @@
 	.title {
 		margin-bottom: 1.5rem;
 	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-grow: 1;
+	}
+	&.is_slider {
+		height: auto;
+
+		.content {
+			flex: 0 0 10rem; // enough for a two-line title plus link
+		}
+	}
 }

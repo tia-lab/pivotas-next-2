@@ -1,4 +1,4 @@
-dateModified: 1785863460
+dateModified: 1785918216
 elementSources:
   craft\elements\Entry:
     -
@@ -65,20 +65,6 @@ elementSources:
       page: Entries
       type: native
     -
-      defaultSort:
-        - postDate
-        - desc
-      defaultViewMode: ''
-      disabled: false
-      key: 'section:89014962-23fe-4fad-85c0-5f848ead2b72' # Help Center
-      page: Entries
-      tableAttributes:
-        - status
-        - postDate
-        - expiryDate
-        - link
-      type: native
-    -
       key: 'section:0e026e73-9c8a-42a9-8750-396dc0f8f17a' # Reusable Sections
       page: 'Reusable Sections'
       type: native
@@ -122,12 +108,11 @@ meta:
     3ddb6fa2-895e-4cb8-a071-da27e99b0b4a: 'Items Limit' # Items Limit
     03f4831e-7eb9-43d9-afdd-7831d4a2c11b: Expertise # Expertise
     04a59516-2675-475c-a81f-2549be9366e5: 'SEO Image' # SEO Image
+    4c12bdf9-f8b7-4605-8d4b-eb70638cd78e: 'News Collection' # News Collection
     4eb068df-aa04-4606-9686-5d3cbd0b22c6: 'Section Contact' # Section Contact
-    5b9e8bee-f478-4e6e-8e11-bf53c6adf6b1: 'Value Item' # Value Item
     5c34671a-46c6-4f6a-8030-ebc1fb04c6d5: 'Event Date' # Event Date
     05cfa0aa-902b-4bd6-a461-bfc396b9a517: 'Selected News' # Selected News
     6b058ab9-7af1-4f82-a103-4d806604cf63: 'Section Team' # Section Team
-    6e00c309-d1e9-4172-aa52-fd860a73d85a: 'Section Values Items' # Section Values Items
     6f4fd0ee-dca6-41bc-9a7d-a027e3e1077f: Links # Links
     7c0872ca-cff9-4732-92b2-39c647480305: Page # Page
     07d5f2ea-fbd3-42b3-bdfa-d74ef94bdf5e: 'Custom Spacing' # Custom Spacing
@@ -135,16 +120,21 @@ meta:
     7e37d166-4cec-4c6a-9402-4f3289179816: 'Team Order By' # Team Order By
     7f147fc9-f8a9-44a2-9323-4e858f671457: 'Social Link' # Social Link
     8a95c56e-9efa-4c74-afa7-dc065b39c23a: 'Section About' # Section About
-    8b4cd9d2-d157-4f7d-82da-78f3a664c602: 'List Item' # List Item
+    8d9b6b91-f6ec-4d5d-a985-a294d999332a: 'Events Collection' # Events Collection
+    8d10d191-fcb4-4900-90cd-aabc3f02b2fe: 'Legal Item' # Legal Item
     8f32eae1-0616-402f-a527-d44522fb6aae: NextJs # NextJs
     8f90746f-df77-4301-8220-07d63cdbdd52: Form # Form
     8fdba6ef-2ef6-41f5-8254-12c4fd56394f: Role # Role
     9bc2bd8f-3ecd-4c26-963b-70ed9439ec20: Description # Description
-    009ebc2b-18fe-4485-a27d-156d91a1d4ac: 'Section List' # Section List
     9f753c5c-df7d-4198-8a6c-682d90b5207b: 'Section Hero' # Section Hero
+    9fe432cb-e474-480d-b941-85e2defe332a: 'Expertise Order By' # Expertise Order By
     10bbb803-4d23-4599-8785-f2e62a66ce00: 'Selected Events' # Selected Events
+    028c68a9-8240-4b8c-94d5-bca16475d037: 'Collection Order By' # Collection Order By
+    afcfeefb-37c5-467b-acb1-5c19ae4588ca: 'Items Per Page' # Items Per Page
+    bec6e3e1-64de-4ba9-9a24-8a6ff66efe2e: 'Items Limit' # Items Limit
     30d1b8b2-bc92-4f54-a3fe-b915f5a0ce9d: 'Navigation Items' # Navigation Items
     47b26259-cee1-4c6d-8ec3-c5c6afc21a85: Small # Small
+    047d790c-1da1-4d54-ab65-39d5c2294dce: 'Collection Page' # Collection Page
     55e5181d-ba5a-4f10-a7bc-b8fd27e6f57d: 'CTA Slides' # CTA Slides
     56cd8fce-1035-4c04-9a6b-05704a65ca51: SEO # SEO
     56d14e66-247f-45a4-9a20-0dd5eb33d4bc: 'Section Reference' # Section Reference
@@ -164,15 +154,15 @@ meta:
     691eebac-34af-4bd3-bbd9-eac59b884edb: Footer # Footer
     715e5a51-2413-4918-8f6e-6a86b178fbfd: 'Web App Manifest 512x512' # Web App Manifest 512x512
     757e5334-e6b1-4d54-be32-dc1508ee4b08: 'Link Target' # Link Target
+    783eb534-1acf-40e9-9f8c-f631f2e038e6: 'Team Collection' # Team Collection
     970a9d93-40e0-4d21-ab2b-cddd3397ece9: 'Expertise Label' # Expertise Label
     995d932b-127f-46ae-9dd8-291ff43abf1e: Link # Link
-    1846e99c-13ed-4174-9745-46d95e002e3c: 'Section Values' # Section Values
     2400dc08-ae8a-4fdf-8a14-77a74d751656: 'Cookie Retention Days' # Cookie Retention Days
+    02738ded-dcec-472d-97d9-d171c58653b1: 'Events Scope' # Events Scope
     4660a8ef-7384-4e04-8d51-b1ed7a1ebeef: 'Error Page Title' # Error Page Title
     5165ed82-c39f-43e3-bea4-4f47e937b3d6: 'Selected Expertise' # Selected Expertise
     6376b934-148c-462e-a7b6-d8d6877bacdc: 'Error Page' # Error Page
     6750f06b-6790-4e70-8f04-58365c061d36: Navigation # Navigation
-    7011e472-8f55-46a5-b109-a8b03d874582: 'Section Image Slider Items' # Section Image Slider Items
     8108f4f8-30f0-478c-8560-657c3b5baaf5: 'Open Graph Description' # Open Graph Description
     8276a78e-fefc-4592-89f9-dc8253802660: Address # Address
     08472c25-ee36-4010-8ffd-3df84262af96: 'Default SEO Image' # Default SEO Image
@@ -182,7 +172,6 @@ meta:
     54262b9c-4f17-4e76-a5f1-9e148931ba48: 'Team Member' # Team Member
     80449db7-9d3f-481c-a438-64d7616f2102: 'Space Bottom' # Space Bottom
     181882b1-9cfc-4e14-abba-b02e469f7239: 'No Follow' # No Follow
-    244019eb-73b0-4ea5-976f-2592c3f2a9a8: 'Image Slide' # Image Slide
     245952a8-f5b6-4e30-a19f-46338a68a53c: 'Section Content' # Section Content
     360652e6-00ff-4774-b5c7-d9ad1331e09b: Sections # Sections
     507722fb-06cd-4f93-a2c5-f1e5a09221bb: 'Team Categories' # Team Categories
@@ -192,16 +181,18 @@ meta:
     8525435f-ca62-40f9-ab52-df87683f66e9: 'Legal Page' # Legal Page
     15008193-42c3-40a4-ad33-16aa7d1415ff: Large # Large
     27138272-d22e-47c6-87e0-48c80581d80f: 'Related Links' # Related Links
-    89014962-23fe-4fad-85c0-5f848ead2b72: 'Help Center' # Help Center
     94611176-dc23-4b3b-b517-57ef2d20385c: Phone # Phone
     98055765-f8b4-4c53-8033-574ac496e7d5: 'Section CTA Slider' # Section CTA Slider
     a6ebaa54-ff7f-44bb-bfbe-2850b62c9c72: 'News Variant' # News Variant
     a21a746c-2880-4545-9e61-734dd313dcbc: Author # Author
     a80f67ed-1d8e-44aa-86c1-33453e3557bc: Event # Event
     a92d8ad3-9681-46d4-a928-611299644e87: 'Web App Manifest 192x192' # Web App Manifest 192x192
+    abdba094-401c-4d18-a918-e8d2e40dbdc9: Collection # Collection
+    ad02d454-1daf-4584-9d47-9dab0c9fc9cf: 'Form Page' # Form Page
     b2d1edb5-4b8c-42be-8296-841cab61ef56: Caption # Caption
     b47c14a1-1115-4cf7-8d10-0f81c1f34c52: Events # Events
     b88f675c-8386-4f57-b056-bf9d8baa5c9e: 'Favicon 96x96' # Favicon 96x96
+    b416651f-9b88-4297-a63a-05a10cd372b3: 'Accordion Item' # Accordion Item
     ba5af5e7-826d-4038-ada5-372bb4bb7b7b: 'Section Events' # Section Events
     bbe63ff6-f6c8-4d3f-9f3f-73af141d9aaf: 'SEO Description' # SEO Description
     bbe74a36-5c8c-4b60-8191-579ce8df7265: News # News
@@ -216,13 +207,13 @@ meta:
     d06d3ffa-3ff6-458e-ae0f-9941de22328d: 'Navigation Handle' # Navigation Handle
     d8e0e1ac-ccfa-47a0-8342-b29270a8307e: 'Section CTA Text' # Section CTA Text
     d9af3711-15b0-40ad-b91a-a78c305be464: 'Company Name' # Company Name
+    d45ab57e-8838-4541-b3e7-017bc3e89fc7: 'Expertise Collection' # Expertise Collection
+    d53bb36f-6fa0-4a78-8059-02622005bcfd: 'Accordion Items' # Accordion Items
     d228c328-7c52-43d4-8820-b65236598157: 'LinkedIn URL' # LinkedIn URL
-    d1203fd6-b650-4a1a-b0d7-c8531d4ddcde: FAQ # FAQ
     dc0fd7ba-be3a-4b97-a603-e120af95ac8c: Excerpt # Excerpt
     dc4d4eed-0559-4bec-8d42-7fdfb693f8d3: Images # Images
+    ddaaf76d-17ae-425d-bed5-2d8c1c70cc52: 'Legal Items' # Legal Items
     e1c90914-8878-4287-92af-bfa5509c7370: 'Ubiq Next' # Ubiq Next
-    e16ad046-6c04-412f-927a-ccbef3b6a319: 'List Items' # List Items
-    e26f7668-a7f6-4f48-8919-177a5910c732: 'Section Image Slider' # Section Image Slider
     e732f6f9-8122-46ba-ab0e-40990cf31a7b: 'CTA Slide' # CTA Slide
     e7610728-1427-49bb-a0eb-6d551bdae3ed: 'Section Services' # Section Services
     ec269661-4594-4062-a2d7-dc2caf1bcc82: Expertise # Expertise
@@ -624,7 +615,7 @@ plugins:
 system:
   edition: solo
   live: true
-  name: 'Ubiq Next'
+  name: Pivotas
   retryDuration: null
   schemaVersion: 5.9.0.8
   timeZone: Europe/Zurich

@@ -14,10 +14,20 @@ const teamOrderBy: Record<TeamOrder, string> = {
 	lastNameDesc: 'lastName DESC'
 }
 
-export const getTeam = (limit = 12, order: TeamOrder = 'firstNameAsc') => {
+export const getTeam = (
+	limit: number | null = 12,
+	order: TeamOrder = 'firstNameAsc',
+	categoryIds: string[] = [],
+	offset = 0
+) => {
 	return craftQuery(
 		TeamIndexQuery,
-		{ limit, orderBy: teamOrderBy[order] },
+		{
+			limit,
+			offset,
+			orderBy: teamOrderBy[order],
+			teamCategories: categoryIds.length ? categoryIds : undefined
+		},
 		{
 			tags: [
 				'craft',

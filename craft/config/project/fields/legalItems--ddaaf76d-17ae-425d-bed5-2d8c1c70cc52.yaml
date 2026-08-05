@@ -1,10 +1,10 @@
 columnSuffix: null
-handle: sectionListItems
+handle: legalItems
 instructions: null
-name: 'List Items'
+name: 'Legal Items'
 searchable: false
 settings:
-  createButtonLabel: null
+  createButtonLabel: 'Add a legal item'
   defaultIndexViewMode: cards
   enableVersioning: false
   entryTypes:
@@ -12,13 +12,13 @@ settings:
       __assoc__:
         -
           - uid
-          - 8b4cd9d2-d157-4f7d-82da-78f3a664c602 # List Item
+          - 8d10d191-fcb4-4900-90cd-aabc3f02b2fe # Legal Item
         -
           - group
-          - Items
+          - Legal
   includeTableView: false
   maxEntries: null
-  minEntries: null
+  minEntries: 1
   pageSize: null
   propagationKeyFormat: null
   propagationMethod: all

@@ -2,7 +2,7 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  22aa8196-8b17-4b3b-9d7a-3a678f552bd0:
+  2dcfe603-f4df-489e-b16f-ab412ac0f0bc:
     cardThumbAlignment: end
     tabs:
       -
@@ -13,7 +13,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -32,34 +32,34 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 8c06fd93-fb2c-4ce5-a452-3c69b9488d6a
+            uid: 698d4fa1-b12e-419c-8300-e80609bb2908
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2026-08-05T07:39:58+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: ddaaf76d-17ae-425d-bed5-2d8c1c70cc52 # Legal Items
+            fieldUid: 8f90746f-df77-4301-8220-07d63cdbdd52 # Form
             handle: null
             instructions: null
             label: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 16507aaf-2a16-42b7-b136-c9945c4e84ce
+            uid: 2532f27e-6b23-4681-a727-e59ce6228ee9
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 238f9db8-3d9f-440f-95f5-f9dbd6aa6bff
+        uid: 5e860b4c-22de-49b2-b0ed-c09a713b1f0c
         userCondition: null
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -70,12 +70,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: f807a56d-6008-44fc-b74b-76bdf2e0e604
+            uid: 6d226681-a835-42ec-9c59-06d05595f2f4
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -86,12 +86,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 98198094-aee1-4413-bbcf-d2cc659b91df
+            uid: 05a46238-97d8-4b26-9e0e-1c10f267f358
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -102,12 +102,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 271f2f63-1e1a-4fc1-a76a-8444dbfba725
+            uid: 96d1001c-1a33-42cf-b7fc-506052a3e892
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -118,12 +118,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: d56aa79e-07a6-4ad6-a914-bf7ce3fc21f9
+            uid: c45c732a-cdef-49b3-82c4-4da2ed4d2c51
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -134,12 +134,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3ac251dd-6eac-4dee-9693-6f89cf68debe
+            uid: af34dd2e-bea6-4a08-b356-ba622e684f51
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -150,12 +150,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9db6a73b-7118-471f-a3b7-ffb075853091
+            uid: d11fa08b-4515-42f5-b1c9-a5fe547eea19
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -166,12 +166,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 95091f38-7f6f-430d-8d1f-dc0b1c27e0b9
+            uid: 4ab3893c-3adc-457d-8820-999405084a8c
             userCondition: null
             warning: null
             width: 50
           -
-            dateAdded: '2026-08-05T07:38:58+00:00'
+            dateAdded: '2026-08-05T07:37:32+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -182,18 +182,18 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7cd59890-29d0-4803-8d04-329de1fb5d5f
+            uid: b76a3813-d83e-4dd1-aefc-70c8899d14b5
             userCondition: null
             warning: null
             width: 50
         name: SEO
-        uid: 0c95aaaa-2d9f-47f9-a0b1-bf360b30323b
+        uid: 269f46b4-a90a-486d-a736-63debf789c08
         userCondition: null
     thumbFieldKey: null
-handle: legalPage
+handle: formPage
 hasTitleField: true
-icon: scale-balanced
-name: 'Legal Page'
+icon: message-arrow-up-right
+name: 'Form Page'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

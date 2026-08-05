@@ -447,7 +447,7 @@ This repository is a full starter for a small headless website system:
 - a Next app under `app/`
 - a section-based Craft page composer
 - typed GraphQL queries through `gql.tada`
-- Next App Router templates for pages, legal pages, and news entries
+- Next App Router templates for pages, collection pages, legal pages, and entries
 - live preview from Craft into Next
 - tag-based cache revalidation from Craft into Next
 - global SEO, footer, and legal/cookie content
@@ -1097,21 +1097,19 @@ stable Craft UUIDs.
 
 ### Entries
 
-| Section           | Handle             | Entry types         | Purpose                                  |
-| ----------------- | ------------------ | ------------------- | ---------------------------------------- |
-| Pages             | `pages`            | `page`, `legalPage` | normal, expertise-index, and legal pages |
-| Expertise         | `expertise`        | `expertise`         | expertise detail pages with sections     |
-| News              | `news`             | `news`              | news collection and detail pages         |
-| Events            | `events`           | `event`             | event cards and detail pages              |
-| Services          | `services`         | `service`           | selectable service records               |
-| Team Members      | `teamMembers`      | `teamMember`        | people displayed by team sections        |
-| Help Center       | `helpCenter`       | `faq`               | reusable FAQ records                     |
-| Navigations       | `navigations`      | `navigation`        | named navigation definitions             |
-| Reusable Sections | `reusableSections` | section entry types | shared blocks referenced by pages        |
+| Section           | Handle             | Entry types                                             | Purpose                             |
+| ----------------- | ------------------ | ------------------------------------------------------- | ----------------------------------- |
+| Pages             | `pages`            | `page`, `collectionPage`, `formPage`, `legalPage`       | public page layouts                 |
+| Expertise         | `expertise`        | `expertise`                                             | expertise detail pages with sections |
+| News              | `news`             | `news`                                                  | news entries                        |
+| Events            | `events`           | `event`                                                 | event cards and detail pages        |
+| Services          | `services`         | `service`                                               | selectable service records          |
+| Team Members      | `teamMembers`      | `teamMember`                                            | people displayed by team sections   |
+| Navigations       | `navigations`      | `navigation`                                            | named navigation definitions        |
+| Reusable Sections | `reusableSections` | section entry types                                     | shared blocks referenced by pages   |
 
 The `teamCategories` category group classifies team members. Services, team
-members, and FAQs do not have public detail routes. Events and expertise
-entries do.
+members do not have public detail routes. Events and expertise entries do.
 
 ### Page Sections
 
@@ -1133,9 +1131,6 @@ Current section entry types:
 | `sectionExpertise`   | selected or queried expertise entries                     |
 | `sectionServices`    | selected service records                                   |
 | `sectionTeam`        | selected or queried team members                           |
-| `sectionList`        | authored title/description list items                      |
-| `sectionValues`      | authored value cards with image and rich text              |
-| `sectionImageSlider` | authored image cards in grid or slider form                |
 | `sectionReference`   | reference to a reusable section with optional spacing      |
 
 Sections can opt into custom spacing through `customSpacing`, `spaceTop`, and
@@ -1148,6 +1143,28 @@ The reusable link model is represented by the `links` Matrix field.
 The asset model is represented by the shared image field and image fragment.
 
 Rich text is represented by the `richText` CKEditor field and queried as HTML.
+
+### Legal Pages
+
+`legalPage` entries use a required `legalItems` Matrix field. Each Legal Item
+contains a title, rich text, and an optional `accordionItems` Matrix. Each
+Accordion Item contains its own title and rich text. Legal pages do not use the
+section composer.
+
+### Collection Pages
+
+`collectionPage` entries use a required single-item `collection` Matrix. The
+editor chooses one configuration type:
+
+| Configuration | Controls |
+| ------------- | -------- |
+| News          | item limit and chronological/title order |
+| Events        | item limit, chronological/title order, and all/upcoming/past scope |
+| Expertise     | item limit and structure/chronological/title order |
+| Team          | item limit, name order, and optional team categories |
+
+The Matrix entries are configuration blocks only. News, events, expertise, and
+team-member content remains owned by its collection section.
 
 ### Globals
 
@@ -1170,7 +1187,7 @@ Main query surfaces:
 
 | File              | Purpose                                             |
 | ----------------- | --------------------------------------------------- |
-| `entry-by-uri.ts` | page, expertise, legal, news, and event lookup       |
+| `entry-by-uri.ts` | page, collection, expertise, legal, news, and event lookup |
 | `events.ts`       | event collection lookup                             |
 | `expertise.ts`    | expertise collection lookup                         |
 | `globals.ts`      | footer, legal, Error Page, and SEO globals           |
@@ -1215,15 +1232,10 @@ Renders the Craft homepage. The internal Craft URI for the homepage is `home`.
 app/src/app/[...slug]/page.tsx
 ```
 
-Renders normal pages, legal pages, expertise details, and event details by
-their Craft URI. Event URIs use `events/{slug}` and expertise URIs use
-`expertise/{slug}`.
-
-```txt
-app/src/app/news/page.tsx
-```
-
-Renders the news index.
+Renders normal pages, collection pages, legal pages, expertise details, and
+event details by their Craft URI. Event URIs use `events/{slug}` and expertise
+URIs use `expertise/{slug}`. A collection page with the URI `news` owns the
+news index.
 
 ```txt
 app/src/app/news/[slug]/page.tsx
@@ -1235,10 +1247,10 @@ Renders a news detail page by querying the Craft URI:
 news/{slug}
 ```
 
-The homepage and news index are prerendered during the build. The catch-all
-page route and news-detail route return an empty `generateStaticParams()` list,
-so valid Craft URIs are generated on first access and then participate in
-Next/Vercel ISR.
+The homepage is prerendered during the build. The catch-all page route and
+news-detail route return an empty `generateStaticParams()` list, so valid Craft
+URIs—including collection pages—are generated on first access and then
+participate in Next/Vercel ISR.
 
 Public routes do not read preview query parameters. Requests containing
 `x-craft-preview-token` are internally rewritten before route selection to:
@@ -1255,13 +1267,14 @@ Craft page URI.
 
 `app/src/Templates/TemplateRouter.tsx` routes entry types to templates:
 
-| Craft entry type  | Next template   |
-| ----------------- | --------------- |
-| `page_Entry`      | `PageTemplate`  |
-| `expertise_Entry` | `PageTemplate`  |
-| `legalPage_Entry` | `LegalTemplate` |
-| `news_Entry`      | `NewsTemplate`  |
-| `event_Entry`     | `EventTemplate` |
+| Craft entry type       | Next template        |
+| ---------------------- | -------------------- |
+| `page_Entry`           | `PageTemplate`       |
+| `collectionPage_Entry` | `CollectionTemplate` |
+| `expertise_Entry`      | `PageTemplate`       |
+| `legalPage_Entry`      | `LegalTemplate`      |
+| `news_Entry`           | `NewsTemplate`       |
+| `event_Entry`          | `EventTemplate`      |
 
 Normal pages and expertise entries then render `sections` through:
 
@@ -1290,17 +1303,18 @@ Files under `app/src/Templates/` own entry-level layout.
 
 Use templates when the full entry type changes the page structure:
 
-| Entry type      | Template owns                         |
-| --------------- | ------------------------------------- |
-| normal page     | section-composed page layout          |
-| expertise entry | section-composed expertise layout     |
-| legal page      | legal title and rich text layout      |
-| news entry      | news article/detail layout            |
-| event entry     | event metadata, body, gallery, links  |
+| Entry type      | Template owns                                      |
+| --------------- | -------------------------------------------------- |
+| normal page     | section-composed page layout                       |
+| collection page | type-specific collection query and card grid       |
+| expertise entry | section-composed expertise layout                  |
+| legal page      | legal items and optional native accordion groups   |
+| news entry      | news article/detail layout                         |
+| event entry     | event metadata, body, gallery, links               |
 
-Templates decide whether an entry uses sections. Legal, news, and event entries
-do not use the section composer unless that content model is intentionally
-changed.
+Templates decide whether an entry uses sections. Collection, legal, news, and
+event entries do not use the section composer unless that content model is
+intentionally changed.
 
 ### Sections
 
@@ -1430,8 +1444,8 @@ The fallback order is:
 3. entry image
 4. SEO global defaults
 
-The root layout uses global SEO metadata. Page, legal, and news routes use
-entry-aware metadata.
+The root layout uses global SEO metadata. Public entry routes, including
+collection and legal pages, use entry-aware metadata.
 
 The public `llms.txt` endpoint lives at:
 
@@ -1541,6 +1555,10 @@ Examples:
 | `getGlobals`    | `craft`, `craft:globals`, `craft:global:footer`, `craft:global:legal`, `craft:global:errorPage`, `craft:global:seo` |
 | `getNavigation` | `craft`, `craft:navigation`, `craft:navigation:{handle}`                                  |
 | `getNews`       | `craft`, `craft:entries`, `craft:news`, `craft:section:news`                              |
+
+Upcoming and past event collection queries also use a one-hour time-based
+revalidation window so an event can cross its date boundary without requiring
+a content save.
 
 The frontend receives revalidation calls at:
 
@@ -1695,7 +1713,7 @@ Frontend code is split by responsibility, not by route first.
 | `app/src/animations/` | animation implementation   | centralized GSAP config, animation registries, reusable animation effects                 |
 | `app/src/Components/` | reusable UI primitives     | buttons, images, wrappers, layout utilities, modals, sidebars                             |
 | `app/src/Sections/`   | CMS-rendered page sections | section components mapped from Craft Matrix section entry types                           |
-| `app/src/Templates/`  | entry-type layouts         | page, legal page, and news detail templates                                               |
+| `app/src/Templates/`  | entry-type layouts         | page, collection, legal, news, and event templates                                        |
 | `app/src/lib/craft/`  | Craft integration          | GraphQL client, preview client, metadata helpers, asset URL normalization, query wrappers |
 | `app/src/queries/`    | GraphQL documents          | queries and fragments consumed by `gql.tada`                                              |
 | `app/src/hooks/`      | reusable React hooks       | client-side behavior hooks that are not tied to one component                             |
@@ -2964,7 +2982,6 @@ The successful build route table must classify:
 
 ```txt
 /                                  Static
-/news                              Static
 /[...slug]                         SSG
 /news/[slug]                       SSG
 /craft-preview/[[...slug]]         Dynamic

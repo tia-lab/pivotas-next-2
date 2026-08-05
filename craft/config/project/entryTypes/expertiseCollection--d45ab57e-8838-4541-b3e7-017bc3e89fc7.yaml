@@ -1,0 +1,74 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  310e59ca-26b1-4164-88ac-4e32ab33ffeb:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: bec6e3e1-64de-4ba9-9a24-8a6ff66efe2e # Items Limit
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 45893216-ab2c-4391-8c7b-89a1fe0f6f7d
+            userCondition: null
+            warning: null
+            width: 33
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: afcfeefb-37c5-467b-acb1-5c19ae4588ca # Items Per Page
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 27fd48f1-c523-40d3-8d8a-4dba32d3094d
+            userCondition: null
+            warning: null
+            width: 33
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 9fe432cb-e474-480d-b941-85e2defe332a # Expertise Order By
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84d24460-68c0-4863-9944-7b7871f50cb2
+            userCondition: null
+            warning: null
+            width: 33
+        name: Collection
+        uid: 3e1fa7eb-a38c-4861-a75f-d1d704f299b4
+        userCondition: null
+    thumbFieldKey: null
+handle: expertiseCollection
+hasTitleField: false
+icon: lightbulb
+name: 'Expertise Collection'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: Expertise
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,3 +1,61 @@
+@use '../../styles/export.scss' as *;
+
+.article {
+	@include section-spacing(10rem, 8.75rem);
+}
+
 .title {
-	margin-top: 10rem;
+	margin-bottom: 4rem;
+}
+
+.items {
+	display: grid;
+	gap: 5rem;
+}
+
+.item {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.rich_text,
+.accordion_content {
+	display: grid;
+	gap: 1rem;
+}
+
+.accordions {
+	margin-top: 1.5rem;
+	border-top: 1px solid $color-secondary;
+}
+
+.accordion {
+	border-bottom: 1px solid $color-secondary;
+
+	summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding: 1.5rem 0;
+		cursor: pointer;
+		list-style: none;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&::after {
+			content: '+';
+			flex: 0 0 auto;
+		}
+	}
+
+	&[open] summary::after {
+		content: '−';
+	}
+}
+
+.accordion_content {
+	padding: 0 0 1.5rem;
 }

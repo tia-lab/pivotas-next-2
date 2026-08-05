@@ -33,6 +33,21 @@ export const SeoFragment = graphql(
       noFollow
     }
 
+    fragment CollectionPageSeoFragment on collectionPage_Entry {
+      seoTitle
+      seoDescription
+      seoImage {
+        ...AssetImageFragment
+      }
+      ogTitle
+      ogDescription
+      ogImage {
+        ...AssetImageFragment
+      }
+      noIndex
+      noFollow
+    }
+
     fragment NewsSeoFragment on news_Entry {
       seoTitle
       seoDescription

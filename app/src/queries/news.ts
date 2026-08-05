@@ -3,8 +3,17 @@ import { AssetImageFragment } from "./fragments/asset";
 
 export const NewsIndexQuery = graphql(
   `
-    query NewsIndex($limit: Int = 12, $orderBy: String = "postDate DESC") {
-      entries(section: "news", orderBy: $orderBy, limit: $limit) {
+    query NewsIndex(
+      $limit: Int
+      $offset: Int = 0
+      $orderBy: String = "postDate DESC"
+    ) {
+      entries(
+        section: "news"
+        orderBy: $orderBy
+        limit: $limit
+        offset: $offset
+      ) {
         __typename
         id
         title

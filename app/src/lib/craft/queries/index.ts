@@ -1,3 +1,4 @@
+export * from "./get-collection-page";
 export * from "./get-entry-by-uri";
 export * from "./get-events";
 export * from "./get-expertise";

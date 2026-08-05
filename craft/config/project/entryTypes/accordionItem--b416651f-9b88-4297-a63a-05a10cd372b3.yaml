@@ -2,7 +2,7 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  acf88ccd-8e27-41a1-b52f-b7856c4b0713:
+  e47a90a0-5ee4-46c0-80a1-0e6d0a04307d:
     cardThumbAlignment: end
     tabs:
       -
@@ -32,7 +32,7 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: ba8ace72-8081-4bf7-aa0b-706e69fc77e0
+            uid: a4b7b839-8dc8-4c3d-b477-f7c1901a6c6a
             userCondition: null
             warning: null
             width: 100
@@ -41,25 +41,25 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 9bc2bd8f-3ecd-4c26-963b-70ed9439ec20 # Description
+            fieldUid: 7de1aa36-fe1f-4d28-b98e-4d1e7123d0e9 # Rich Text
             handle: null
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1517fe80-e1e9-4a37-af16-bec5986973c6
+            uid: 00c055fa-0721-41dc-bad6-735b73c6d093
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: f1449682-bc74-46dc-96bd-10e7565a474f
+        uid: 7869e085-31a3-4629-be87-d12870d6a84a
         userCondition: null
     thumbFieldKey: null
-handle: listItem
+handle: accordionItem
 hasTitleField: true
-icon: list
-name: 'List Item'
+icon: chevron-down
+name: 'Accordion Item'
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null

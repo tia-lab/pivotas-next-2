@@ -1,0 +1,19 @@
+columnSuffix: null
+handle: collectionItemsLimit
+instructions: 'Maximum entries available to this page. Use 0 for all matching entries.'
+name: 'Items Limit'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: 0
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: none
+  size: null
+  step: 1
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

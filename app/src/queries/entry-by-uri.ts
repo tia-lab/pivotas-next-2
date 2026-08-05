@@ -1,5 +1,6 @@
 import { graphql } from '@/lib/craft/graphql'
 import { AssetImageFragment } from './fragments/asset'
+import { CollectionPageConfigFragment } from './fragments/collection'
 import { LinkFragment } from './fragments/link'
 import { SectionFragment } from './fragments/section'
 import { SeoFragment } from './fragments/seo'
@@ -34,12 +35,30 @@ export const EntryByUriQuery = graphql(
 				}
 				... on legalPage_Entry {
 					...LegalSeoFragment
-					image {
-						...AssetImageFragment
+					legalItems {
+						... on legalItem_Entry {
+							__typename
+							id
+							title
+							richText {
+								html
+							}
+							accordionItems {
+								... on accordionItem_Entry {
+									__typename
+									id
+									title
+									richText {
+										html
+									}
+								}
+							}
+						}
 					}
-					richText {
-						html
-					}
+				}
+				... on collectionPage_Entry {
+					...CollectionPageSeoFragment
+					...CollectionPageConfigFragment
 				}
 				... on news_Entry {
 					...NewsSeoFragment
@@ -90,5 +109,11 @@ export const EntryByUriQuery = graphql(
 			}
 		}
 	`,
-	[AssetImageFragment, LinkFragment, SectionFragment, SeoFragment]
+	[
+		AssetImageFragment,
+		CollectionPageConfigFragment,
+		LinkFragment,
+		SectionFragment,
+		SeoFragment
+	]
 )

@@ -3,8 +3,19 @@ import { AssetImageFragment } from './fragments/asset'
 
 export const TeamIndexQuery = graphql(
 	`
-		query TeamIndex($limit: Int = 12, $orderBy: String = "title ASC") {
-			entries(section: "teamMembers", orderBy: $orderBy, limit: $limit) {
+		query TeamIndex(
+			$limit: Int
+			$offset: Int = 0
+			$orderBy: String = "title ASC"
+			$teamCategories: [QueryArgument]
+		) {
+			entries(
+				section: "teamMembers"
+				orderBy: $orderBy
+				limit: $limit
+				offset: $offset
+				teamCategories: $teamCategories
+			) {
 				__typename
 				id
 				title

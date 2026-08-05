@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: eventsScope
+instructions: null
+name: 'Events Scope'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - All
+        -
+          - value
+          - all
+        -
+          - default
+          - true
+    -
+      __assoc__:
+        -
+          - label
+          - Upcoming
+        -
+          - value
+          - upcoming
+        -
+          - default
+          - false
+    -
+      __assoc__:
+        -
+          - label
+          - Past
+        -
+          - value
+          - past
+        -
+          - default
+          - false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -4,6 +4,10 @@ entryTypes:
   -
     uid: 7c0872ca-cff9-4732-92b2-39c647480305 # Page
   -
+    uid: 047d790c-1da1-4d54-ab65-39d5c2294dce # Collection Page
+  -
+    uid: ad02d454-1daf-4584-9d47-9dab0c9fc9cf # Form Page
+  -
     uid: 8525435f-ca62-40f9-ab52-df87683f66e9 # Legal Page
 handle: pages
 maxAuthors: 1

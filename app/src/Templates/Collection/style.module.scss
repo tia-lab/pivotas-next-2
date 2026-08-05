@@ -1,0 +1,49 @@
+@use '../../styles/export.scss' as *;
+
+.section {
+	@include section-spacing(10rem, 8.75rem);
+}
+
+.title {
+	margin-bottom: 4rem;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 2rem;
+
+	&[data-collection-type='newsCollection_Entry'],
+	&[data-collection-type='eventsCollection_Entry'] {
+		gap: 0;
+	}
+
+	&[data-collection-type='expertiseCollection_Entry'] {
+		grid-template-columns: 2fr 1fr;
+		column-gap: 0.25rem;
+		row-gap: 4rem;
+	}
+
+	@include mobile {
+		grid-template-columns: 1fr;
+
+		&[data-collection-type='expertiseCollection_Entry'] {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+.load_more {
+	display: flex;
+	justify-content: center;
+	margin-top: 4rem;
+}
+
+.status {
+	margin-top: 1.5rem;
+	text-align: center;
+
+	&:empty {
+		display: none;
+	}
+}

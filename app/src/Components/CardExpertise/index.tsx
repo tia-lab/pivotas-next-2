@@ -4,6 +4,7 @@ import { config } from '$/config'
 import { gsap } from '@/gsap'
 import { useGsapMatchMedia } from '@/hooks'
 import { ExpertiseIndexQuery } from '@/queries'
+import clsx from 'clsx'
 import type { ResultOf } from 'gql.tada'
 import { useEffect, useRef, useState } from 'react'
 import { ImageCraft } from '../ImageCraft'
@@ -22,7 +23,7 @@ interface ExpertiseCardProps {
 	variant?: string | null
 }
 
-export const CardExpertise = ({ item }: ExpertiseCardProps) => {
+export const CardExpertise = ({ item, variant }: ExpertiseCardProps) => {
 	const ref = useRef<HTMLDivElement>(null)
 	const tl = useRef<gsap.core.Timeline | null>(null)
 	const [hover, setHover] = useState(false)
@@ -57,7 +58,9 @@ export const CardExpertise = ({ item }: ExpertiseCardProps) => {
 	}, [hover])
 
 	return (
-		<article className={$.article} ref={ref}>
+		<article
+			className={clsx($.article, variant === 'slider' && $.is_slider)}
+			ref={ref}>
 			{item.image?.[0] ? (
 				<div className={$.image_wrapper}>
 					<ImageCraft image={item.image[0]} className={$.image} data-image />
@@ -67,7 +70,8 @@ export const CardExpertise = ({ item }: ExpertiseCardProps) => {
 			<div
 				data-card-content
 				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}>
+				onMouseLeave={() => setHover(false)}
+				className={clsx($.content)}>
 				<h4 className={$.title}>{item.title}</h4>
 				<LinkArrow title='Discover our expertise' href={href} />
 			</div>

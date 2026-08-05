@@ -3,8 +3,19 @@ import { AssetImageFragment } from './fragments/asset'
 
 export const EventsIndexQuery = graphql(
 	`
-		query EventsIndex($limit: Int = 12, $orderBy: String = "eventDate DESC") {
-			entries(section: "events", orderBy: $orderBy, limit: $limit) {
+		query EventsIndex(
+			$limit: Int
+			$offset: Int = 0
+			$orderBy: String = "eventDate DESC"
+			$eventDate: [QueryArgument]
+		) {
+			entries(
+				section: "events"
+				orderBy: $orderBy
+				limit: $limit
+				offset: $offset
+				eventDate: $eventDate
+			) {
 				__typename
 				id
 				title
