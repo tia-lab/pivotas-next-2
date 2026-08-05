@@ -2,28 +2,22 @@ import { CardService, Container, Wrapper } from '@/Components'
 import { RenderableSectionFragment } from '@/queries'
 import { readFragment } from 'gql.tada'
 import type { SectionComponentProps } from '../SectionRouter'
-import { getSectionSpacingStyle } from '../utils/section-spacing'
 import $ from './style.module.scss'
 
-export const SectionServices = ({
-	section,
-	spacingOverride
-}: SectionComponentProps) => {
+export const SectionServices = ({ section }: SectionComponentProps) => {
 	const data = readFragment(RenderableSectionFragment, section)
 
 	if (data.__typename !== 'sectionServices_Entry') {
 		return null
 	}
 
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const items = data.selectedServices ?? []
 
 	return (
 		<section
 			className={$.section}
 			data-section-id={data.id ?? undefined}
-			data-section-type={data.typeHandle ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}>
+			data-section-type={data.typeHandle ?? undefined}>
 			<Wrapper>
 				<Container>
 					<div className={$.head}>

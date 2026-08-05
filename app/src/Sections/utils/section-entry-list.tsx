@@ -3,10 +3,6 @@ import clsx from 'clsx'
 import type { ComponentProps, ReactElement } from 'react'
 import { NewsSlider } from '../SectionNews/NewsSlider.client'
 import $ from '../SectionNews/style.module.scss'
-import {
-	getSectionSpacingStyle,
-	type SectionSpacingSource
-} from './section-spacing'
 
 export type SectionEntryListLink = NonNullable<
 	ComponentProps<typeof Button>['link']
@@ -30,7 +26,6 @@ type SectionEntryListProps<T> = {
 	links?: ReadonlyArray<SectionEntryListLink | null> | null
 	renderItem: (item: T) => ReactElement
 	sectionId?: string | null
-	spacingSource: SectionSpacingSource
 	title?: string | null
 	typeHandle?: string | null
 	variant?: string | null
@@ -42,7 +37,6 @@ export const SectionEntryList = <T,>({
 	links,
 	renderItem,
 	sectionId,
-	spacingSource,
 	title,
 	typeHandle,
 	variant
@@ -57,7 +51,6 @@ export const SectionEntryList = <T,>({
 			data-section-id={sectionId ?? undefined}
 			data-section-type={typeHandle ?? undefined}
 			data-news-variant={variant ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}
 			className={$.section}>
 			<Wrapper>
 				<div className={clsx($.head, variant === 'slider' && $.is_slider)}>

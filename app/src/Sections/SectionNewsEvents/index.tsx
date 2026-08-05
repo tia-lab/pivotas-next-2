@@ -4,7 +4,6 @@ import clsx from 'clsx'
 import { readFragment } from 'gql.tada'
 import type { ComponentProps } from 'react'
 import type { SectionComponentProps } from '../SectionRouter'
-import { getSectionSpacingStyle } from '../utils/section-spacing'
 import $ from './style.module.scss'
 
 type NewsItem = ComponentProps<typeof CardNews>['item']
@@ -29,17 +28,13 @@ const isEventItem = (item: unknown): item is EventItem => {
 	)
 }
 
-export const SectionNewsEvents = ({
-	section,
-	spacingOverride
-}: SectionComponentProps) => {
+export const SectionNewsEvents = ({ section }: SectionComponentProps) => {
 	const data = readFragment(RenderableSectionFragment, section)
 
 	if (data.__typename !== 'sectionNewsEvents_Entry') {
 		return null
 	}
 
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const selectedNews = (data.selectedNews?.filter(isNewsItem) ?? []).slice(
 		0,
 		maxNewsItems
@@ -57,7 +52,6 @@ export const SectionNewsEvents = ({
 		<section
 			data-section-id={data.id ?? undefined}
 			data-section-type={data.typeHandle ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}
 			className={$.section}>
 			<Wrapper>
 				<Anim.h2 className={clsx($.title)}>{data.title}</Anim.h2>

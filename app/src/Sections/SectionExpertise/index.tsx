@@ -5,7 +5,6 @@ import clsx from 'clsx'
 import type { FragmentOf, ResultOf } from 'gql.tada'
 import { readFragment } from 'gql.tada'
 import type { SectionComponentProps } from '../SectionRouter'
-import { getSectionSpacingStyle } from '../utils/section-spacing'
 import { ExpertiseSlider } from './ExpertiseSlider.client'
 import $ from './style.module.scss'
 
@@ -76,17 +75,13 @@ const SectionExpertiseFallback = async ({
 	return <ExpertiseList items={items} variant={variant} />
 }
 
-export const SectionExpertise = ({
-	section,
-	spacingOverride
-}: SectionComponentProps) => {
+export const SectionExpertise = ({ section }: SectionComponentProps) => {
 	const data = readFragment(RenderableSectionFragment, section)
 
 	if (data.__typename !== 'sectionExpertise_Entry') {
 		return null
 	}
 
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const selectedExpertise = (data.selectedExpertise?.filter(isExpertiseItem) ??
 		[]) as ExpertiseItem[]
 
@@ -95,7 +90,6 @@ export const SectionExpertise = ({
 			data-section-id={data.id ?? undefined}
 			data-section-type={data.typeHandle ?? undefined}
 			data-news-variant={data.newsVariant ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}
 			className={$.section}>
 			<Wrapper>
 				<div className={clsx($.head, data.newsVariant === 'slider' && $.is_slider)}>

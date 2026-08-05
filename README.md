@@ -1124,17 +1124,13 @@ Current section entry types:
 | `sectionAbout`       | image/rich-text block with a layout variant                |
 | `sectionCta`         | image CTA slides with links                                |
 | `sectionTextCta`     | text CTA with links                                        |
-| `sectionContact`     | title, text, and Freeform form reference                   |
 | `sectionNews`        | selected or queried news in grid/slider layouts            |
 | `sectionEvents`      | selected or queried events in grid/slider layouts          |
 | `sectionNewsEvents`  | combined selected news and events                          |
 | `sectionExpertise`   | selected or queried expertise entries                     |
 | `sectionServices`    | selected service records                                   |
 | `sectionTeam`        | selected or queried team members                           |
-| `sectionReference`   | reference to a reusable section with optional spacing      |
-
-Sections can opt into custom spacing through `customSpacing`, `spaceTop`, and
-`spaceBottom`.
+| `sectionReference`   | reference to a reusable section                             |
 
 ### Shared Content Fields
 

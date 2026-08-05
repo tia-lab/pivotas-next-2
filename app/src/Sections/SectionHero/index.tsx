@@ -11,23 +11,16 @@ import { RenderableSectionFragment } from '@/queries'
 import clsx from 'clsx'
 import type { FragmentOf } from 'gql.tada'
 import { readFragment } from 'gql.tada'
-import {
-	getSectionSpacingStyle,
-	type SectionSpacingSource
-} from '../utils/section-spacing'
 import $ from './style.module.scss'
 
 interface SectionHeroProps extends React.HTMLAttributes<HTMLElement> {
 	section?: FragmentOf<typeof RenderableSectionFragment> | null
-	spacingOverride?: SectionSpacingSource | null
 	fallbackTitle?: string | null
 }
 
 export const SectionHero = ({
 	section,
-	spacingOverride,
 	fallbackTitle,
-	style,
 	...props
 }: SectionHeroProps) => {
 	const data = section ? readFragment(RenderableSectionFragment, section) : null
@@ -38,13 +31,9 @@ export const SectionHero = ({
 
 	const imageRef = data.image[0] ?? null
 	const title = data.title || fallbackTitle
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
-	const spacingStyle = getSectionSpacingStyle(spacingSource)
-	const sectionStyle =
-		spacingStyle || style ? { ...spacingStyle, ...style } : undefined
 
 	return (
-		<section className={$.section} style={sectionStyle} {...props}>
+		<section className={$.section} {...props}>
 			<Wrapper>
 				<Container>
 					<div className={$.title}>

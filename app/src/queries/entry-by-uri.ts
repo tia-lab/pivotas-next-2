@@ -1,6 +1,7 @@
 import { graphql } from '@/lib/craft/graphql'
 import { AssetImageFragment } from './fragments/asset'
 import { CollectionPageConfigFragment } from './fragments/collection'
+import { FreeformFormFragment } from './fragments/freeform'
 import { LinkFragment } from './fragments/link'
 import { SectionFragment } from './fragments/section'
 import { SeoFragment } from './fragments/seo'
@@ -60,6 +61,12 @@ export const EntryByUriQuery = graphql(
 					...CollectionPageSeoFragment
 					...CollectionPageConfigFragment
 				}
+				... on formPage_Entry {
+					...FormPageSeoFragment
+					form {
+						...FreeformFormFragment
+					}
+				}
 				... on news_Entry {
 					...NewsSeoFragment
 					postDate
@@ -112,6 +119,7 @@ export const EntryByUriQuery = graphql(
 	[
 		AssetImageFragment,
 		CollectionPageConfigFragment,
+		FreeformFormFragment,
 		LinkFragment,
 		SectionFragment,
 		SeoFragment

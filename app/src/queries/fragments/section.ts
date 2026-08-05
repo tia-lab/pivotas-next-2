@@ -1,6 +1,5 @@
 import { graphql } from '@/lib/craft/graphql'
 import { AssetImageFragment } from './asset'
-import { FreeformFormFragment } from './freeform'
 import { LinkFragment } from './link'
 import { ServiceFragment } from './service'
 
@@ -21,9 +20,6 @@ export const RenderableSectionFragment = graphql(
 					...LinkFragment
 				}
 
-				customSpacing
-				spaceTop
-				spaceBottom
 			}
 			... on sectionAbout_Entry {
 				id
@@ -37,9 +33,6 @@ export const RenderableSectionFragment = graphql(
 				images {
 					...AssetImageFragment
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 			}
 			... on sectionCta_Entry {
 				id
@@ -59,9 +52,6 @@ export const RenderableSectionFragment = graphql(
 						}
 					}
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 			}
 			... on sectionTextCta_Entry {
 				id
@@ -71,21 +61,6 @@ export const RenderableSectionFragment = graphql(
 				links {
 					...LinkFragment
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
-			}
-			... on sectionContact_Entry {
-				id
-				title
-				typeHandle
-				text
-				form {
-					...FreeformFormFragment
-				}
-				customSpacing
-				spaceTop
-				spaceBottom
 			}
 			... on sectionNews_Entry {
 				id
@@ -108,9 +83,6 @@ export const RenderableSectionFragment = graphql(
 						}
 					}
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 				links {
 					...LinkFragment
 				}
@@ -137,9 +109,6 @@ export const RenderableSectionFragment = graphql(
 						}
 					}
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 				links {
 					...LinkFragment
 				}
@@ -176,9 +145,6 @@ export const RenderableSectionFragment = graphql(
 						}
 					}
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 				links {
 					...LinkFragment
 				}
@@ -206,9 +172,6 @@ export const RenderableSectionFragment = graphql(
 						}
 					}
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 			}
 			... on sectionServices_Entry {
 				id
@@ -221,9 +184,6 @@ export const RenderableSectionFragment = graphql(
 						...ServiceFragment
 					}
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 			}
 			... on sectionTeam_Entry {
 				id
@@ -251,13 +211,10 @@ export const RenderableSectionFragment = graphql(
 						}
 					}
 				}
-				customSpacing
-				spaceTop
-				spaceBottom
 			}
 		}
 	`,
-	[AssetImageFragment, FreeformFormFragment, LinkFragment, ServiceFragment]
+	[AssetImageFragment, LinkFragment, ServiceFragment]
 )
 
 export const SectionFragment = graphql(
@@ -269,9 +226,6 @@ export const SectionFragment = graphql(
 				id
 				title
 				typeHandle
-				customSpacing
-				spaceTop
-				spaceBottom
 				referencedSection {
 					...RenderableSectionFragment
 				}

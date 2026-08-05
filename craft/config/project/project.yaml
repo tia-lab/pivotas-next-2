@@ -1,4 +1,4 @@
-dateModified: 1785918216
+dateModified: 1785920793
 elementSources:
   craft\elements\Entry:
     -
@@ -109,13 +109,11 @@ meta:
     03f4831e-7eb9-43d9-afdd-7831d4a2c11b: Expertise # Expertise
     04a59516-2675-475c-a81f-2549be9366e5: 'SEO Image' # SEO Image
     4c12bdf9-f8b7-4605-8d4b-eb70638cd78e: 'News Collection' # News Collection
-    4eb068df-aa04-4606-9686-5d3cbd0b22c6: 'Section Contact' # Section Contact
     5c34671a-46c6-4f6a-8030-ebc1fb04c6d5: 'Event Date' # Event Date
     05cfa0aa-902b-4bd6-a461-bfc396b9a517: 'Selected News' # Selected News
     6b058ab9-7af1-4f82-a103-4d806604cf63: 'Section Team' # Section Team
     6f4fd0ee-dca6-41bc-9a7d-a027e3e1077f: Links # Links
     7c0872ca-cff9-4732-92b2-39c647480305: Page # Page
-    07d5f2ea-fbd3-42b3-bdfa-d74ef94bdf5e: 'Custom Spacing' # Custom Spacing
     7de1aa36-fe1f-4d28-b98e-4d1e7123d0e9: 'Rich Text' # Rich Text
     7e37d166-4cec-4c6a-9402-4f3289179816: 'Team Order By' # Team Order By
     7f147fc9-f8a9-44a2-9323-4e858f671457: 'Social Link' # Social Link
@@ -141,7 +139,6 @@ meta:
     59bf264f-4eab-4829-966f-7d3d61a834d9: 'Is External' # Is External
     59f60dec-b0e8-4f31-aeeb-04148da14744: 'Team Categories' # Team Categories
     60b20bac-64e8-4103-8fbb-afa9a4cfacf7: Pages # Pages
-    63b4f0ed-ea91-4662-bd31-c4d993c26bfe: 'Space Top' # Space Top
     72c84ff0-d40e-4713-b700-3111da7bc6ff: 'Selected Team Members' # Selected Team Members
     77da1a78-3cb7-42b4-9cbe-ff150a889293: Services # Services
     83e1f5e8-d1b5-4776-89f9-bdbb1e113638: 'Section Variant' # Section Variant
@@ -170,7 +167,6 @@ meta:
     16550f6c-63a5-468e-a055-9907dd56c0e8: 'Apple Touch Icon' # Apple Touch Icon
     40856d11-9184-4122-824f-1b3c8b5664d6: 'Cookie Decline Label' # Cookie Decline Label
     54262b9c-4f17-4e76-a5f1-9e148931ba48: 'Team Member' # Team Member
-    80449db7-9d3f-481c-a438-64d7616f2102: 'Space Bottom' # Space Bottom
     181882b1-9cfc-4e14-abba-b02e469f7239: 'No Follow' # No Follow
     245952a8-f5b6-4e30-a19f-46338a68a53c: 'Section Content' # Section Content
     360652e6-00ff-4774-b5c7-d9ad1331e09b: Sections # Sections

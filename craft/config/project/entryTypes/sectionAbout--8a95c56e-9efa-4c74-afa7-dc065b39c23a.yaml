@@ -100,54 +100,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 07d5f2ea-fbd3-42b3-bdfa-d74ef94bdf5e # Custom Spacing
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 96deeb24-a5f8-4c73-a421-eecfb1be39bb
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 63b4f0ed-ea91-4662-bd31-c4d993c26bfe # Space Top
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 03ef4a95-8a03-4a90-b3bf-7b4f4820468c
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 80449db7-9d3f-481c-a438-64d7616f2102 # Space Bottom
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: a086d185-d2d0-469e-9535-4c6bb0ea755a
-            userCondition: null
-            warning: null
-            width: 50
         name: Content
         uid: dc2bd2ac-7d35-4080-931a-5c637f1686d5
         userCondition: null

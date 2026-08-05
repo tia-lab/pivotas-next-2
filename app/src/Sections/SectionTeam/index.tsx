@@ -6,10 +6,6 @@ import { readFragment } from 'gql.tada'
 import type { ComponentProps, ReactNode } from 'react'
 import type { SectionComponentProps } from '../SectionRouter'
 import { normalizeEntryLimit } from '../utils/section-entry-list'
-import {
-	getSectionSpacingStyle,
-	type SectionSpacingSource
-} from '../utils/section-spacing'
 import $ from './style.module.scss'
 import { TeamSlider } from './TeamSlider.client'
 
@@ -32,7 +28,6 @@ type SectionTeamLayoutProps = {
 	children: ReactNode
 	links?: ReadonlyArray<TeamSectionLink | null> | null
 	sectionId?: string | null
-	spacingSource: SectionSpacingSource
 	title?: string | null
 	typeHandle?: string | null
 	variant?: string | null
@@ -81,7 +76,6 @@ const SectionTeamLayout = ({
 	children,
 	links,
 	sectionId,
-	spacingSource,
 	title,
 	typeHandle,
 	variant
@@ -95,7 +89,6 @@ const SectionTeamLayout = ({
 			data-section-id={sectionId ?? undefined}
 			data-section-type={typeHandle ?? undefined}
 			data-news-variant={variant ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}
 			className={$.section}>
 			<Wrapper container={true}>
 				<div className={`${$.head} ${variant === 'slider' ? $.is_slider : ''}`}>
@@ -136,17 +129,13 @@ const SectionTeamFallback = async ({
 	return <TeamList items={items} variant={variant} />
 }
 
-export const SectionTeam = ({
-	section,
-	spacingOverride
-}: SectionComponentProps) => {
+export const SectionTeam = ({ section }: SectionComponentProps) => {
 	const data = readFragment(RenderableSectionFragment, section)
 
 	if (data.__typename !== 'sectionTeam_Entry') {
 		return null
 	}
 
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const selectedTeamMembers = (data.selectedTeamMembers?.filter(isTeamItem) ??
 		[]) as TeamItem[]
 
@@ -155,7 +144,6 @@ export const SectionTeam = ({
 			caption={data.caption}
 			links={data.links}
 			sectionId={data.id}
-			spacingSource={spacingSource}
 			title={data.title}
 			typeHandle={data.typeHandle}
 			variant={data.newsVariant}>

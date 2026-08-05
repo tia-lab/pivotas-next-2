@@ -1,0 +1,25 @@
+@use '../../styles/export.scss' as *;
+
+.section {
+	@include section-spacing(10rem, 8.75rem);
+}
+
+.title {
+	grid-column: span 6;
+	margin-right: $space-md;
+}
+
+.form {
+	grid-column: span 6;
+}
+
+@include mobile {
+	.title,
+	.form {
+		grid-column: span 12;
+	}
+
+	.title {
+		margin: 0 0 $space-md;
+	}
+}

@@ -10,7 +10,6 @@ import {
 	SectionEntryList,
 	type SectionEntryListLink
 } from '../utils/section-entry-list'
-import type { SectionSpacingSource } from '../utils/section-spacing'
 
 type SectionEventsEntry = Extract<
 	FragmentOf<typeof RenderableSectionFragment>,
@@ -43,7 +42,6 @@ const SectionEventsFallback = async ({
 	limit,
 	order,
 	sectionId,
-	spacingSource,
 	title,
 	typeHandle,
 	variant
@@ -53,7 +51,6 @@ const SectionEventsFallback = async ({
 	limit: number
 	order: EventsOrder
 	sectionId?: string | null
-	spacingSource: SectionSpacingSource
 	title?: string | null
 	typeHandle?: string | null
 	variant?: string | null
@@ -70,7 +67,6 @@ const SectionEventsFallback = async ({
 				<CardEvent key={item.id ?? item.uri} item={item} variant={variant} />
 			)}
 			sectionId={sectionId}
-			spacingSource={spacingSource}
 			title={title}
 			typeHandle={typeHandle}
 			variant={variant}
@@ -78,24 +74,19 @@ const SectionEventsFallback = async ({
 	)
 }
 
-export const SectionEvents = ({
-	section,
-	spacingOverride
-}: SectionComponentProps) => {
+export const SectionEvents = ({ section }: SectionComponentProps) => {
 	const data = readFragment(RenderableSectionFragment, section)
 
 	if (data.__typename !== 'sectionEvents_Entry') {
 		return null
 	}
 
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const selectedEvents = (data.selectedEvents?.filter(isEventItem) ??
 		[]) as EventItem[]
 	const commonProps = {
 		caption: data.caption,
 		links: data.links,
 		sectionId: data.id,
-		spacingSource,
 		title: data.title,
 		typeHandle: data.typeHandle,
 		variant: data.newsVariant

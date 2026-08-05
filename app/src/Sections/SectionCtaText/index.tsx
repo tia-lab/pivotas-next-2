@@ -3,20 +3,15 @@ import { RenderableSectionFragment } from '@/queries'
 import clsx from 'clsx'
 import { readFragment } from 'gql.tada'
 import type { SectionComponentProps } from '../SectionRouter'
-import { getSectionSpacingStyle } from '../utils/section-spacing'
 import $ from './style.module.scss'
 
-export const SectionCtaText = ({
-	section,
-	spacingOverride
-}: SectionComponentProps) => {
+export const SectionCtaText = ({ section }: SectionComponentProps) => {
 	const data = readFragment(RenderableSectionFragment, section)
 
 	if (data.__typename !== 'sectionTextCta_Entry') {
 		return null
 	}
 
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const links = data.links?.filter((link): link is NonNullable<typeof link> =>
 		Boolean(link)
 	)
@@ -25,7 +20,6 @@ export const SectionCtaText = ({
 		<section
 			data-section-id={data.id ?? undefined}
 			data-section-type={data.typeHandle ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}
 			className={clsx('section', $.section)}>
 			<div className={$.frame}>
 				<Wrapper>

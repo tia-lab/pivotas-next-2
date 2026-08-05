@@ -1,6 +1,5 @@
 export { Footer } from './Footer'
 export { SectionAbout } from './SectionAbout'
-export { SectionContact } from './SectionContact'
 export { SectionCtaSlider } from './SectionCtaSlider'
 export { SectionCtaText } from './SectionCtaText'
 export { SectionEvents } from './SectionEvents'

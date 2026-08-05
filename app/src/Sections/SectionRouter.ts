@@ -8,7 +8,6 @@ import {
 	type ReactElement
 } from 'react'
 import { SectionAbout } from './SectionAbout'
-import { SectionContact } from './SectionContact'
 import { SectionCtaSlider } from './SectionCtaSlider'
 import { SectionCtaText } from './SectionCtaText'
 import { SectionEvents } from './SectionEvents'
@@ -18,7 +17,6 @@ import { SectionNews } from './SectionNews'
 import { SectionNewsEvents } from './SectionNewsEvents'
 import { SectionServices } from './SectionServices'
 import { SectionTeam } from './SectionTeam'
-import type { SectionSpacingSource } from './utils/section-spacing'
 
 type Section = FragmentOf<typeof SectionFragment>
 export type RenderableSection = FragmentOf<typeof RenderableSectionFragment>
@@ -29,14 +27,12 @@ type Props = {
 
 export type SectionComponentProps = {
 	section: RenderableSection
-	spacingOverride?: SectionSpacingSource | null
 }
 
 type SectionComponent = ComponentType<SectionComponentProps>
 
 const sectionComponents: Record<string, SectionComponent> = {
 	sectionAbout_Entry: SectionAbout,
-	sectionContact_Entry: SectionContact,
 	sectionCta_Entry: SectionCtaSlider,
 	sectionHero_Entry: SectionHero,
 	sectionNews_Entry: SectionNews,
@@ -51,8 +47,7 @@ const sectionComponents: Record<string, SectionComponent> = {
 const renderRenderableSection = (
 	section: RenderableSection,
 	index: number,
-	keyOverride?: string,
-	spacingOverride?: SectionSpacingSource | null
+	keyOverride?: string
 ): ReactElement | null => {
 	const data = readFragment(RenderableSectionFragment, section)
 	const Component = sectionComponents[data.__typename]
@@ -66,8 +61,7 @@ const renderRenderableSection = (
 
 	return createElement(Component, {
 		key,
-		section,
-		spacingOverride
+		section
 	})
 }
 
@@ -97,8 +91,7 @@ const renderSection = (
 		return renderRenderableSection(
 			referencedSection,
 			index,
-			`${referenceId}:${referencedId}`,
-			data
+			`${referenceId}:${referencedId}`
 		)
 	}
 

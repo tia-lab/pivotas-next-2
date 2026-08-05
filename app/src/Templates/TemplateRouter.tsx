@@ -2,6 +2,7 @@ import { EntryByUriQuery } from "@/queries";
 import type { ResultOf } from "gql.tada";
 import { CollectionTemplate } from "./Collection";
 import { EventTemplate } from "./Event";
+import { FormTemplate } from "./Form";
 import { LegalTemplate } from "./Legal";
 import { NewsTemplate } from "./News";
 import { PageTemplate } from "./Page";
@@ -22,6 +23,8 @@ export const TemplateRouter = ({ entry }: Props) => {
       return <LegalTemplate entry={entry} />;
     case "collectionPage_Entry":
       return <CollectionTemplate entry={entry} />;
+    case "formPage_Entry":
+      return <FormTemplate entry={entry} />;
     case "news_Entry":
       return <NewsTemplate entry={entry} />;
     case "event_Entry":

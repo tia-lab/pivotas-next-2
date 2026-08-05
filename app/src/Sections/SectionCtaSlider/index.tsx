@@ -3,21 +3,16 @@ import { RenderableSectionFragment } from '@/queries'
 import clsx from 'clsx'
 import { readFragment } from 'gql.tada'
 import type { SectionComponentProps } from '../SectionRouter'
-import { getSectionSpacingStyle } from '../utils/section-spacing'
 import { CtaSlider } from './CtaSlider.client'
 import $ from './style.module.scss'
 
-export const SectionCtaSlider = ({
-	section,
-	spacingOverride
-}: SectionComponentProps) => {
+export const SectionCtaSlider = ({ section }: SectionComponentProps) => {
 	const data = readFragment(RenderableSectionFragment, section)
 
 	if (data.__typename !== 'sectionCta_Entry') {
 		return null
 	}
 
-	const spacingSource = spacingOverride?.customSpacing ? spacingOverride : data
 	const slides = (data.ctaSlides ?? []).filter(
 		(slide): slide is NonNullable<(typeof data.ctaSlides)[number]> =>
 			slide?.__typename === 'ctaSlide_Entry'
@@ -27,7 +22,6 @@ export const SectionCtaSlider = ({
 		<section
 			data-section-id={data.id ?? undefined}
 			data-section-type={data.typeHandle ?? undefined}
-			style={getSectionSpacingStyle(spacingSource)}
 			className={clsx('section', $.section)}>
 			<Wrapper container>
 				<div className={$.content}>

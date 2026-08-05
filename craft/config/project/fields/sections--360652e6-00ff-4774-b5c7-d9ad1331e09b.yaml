@@ -44,14 +44,6 @@ settings:
       __assoc__:
         -
           - uid
-          - 4eb068df-aa04-4606-9686-5d3cbd0b22c6 # Section Contact
-        -
-          - group
-          - Sections
-    -
-      __assoc__:
-        -
-          - uid
           - 597f5647-6a7f-43ea-ad1c-d9d5fcbd521e # Section News
         -
           - group
