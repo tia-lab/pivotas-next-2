@@ -1,3 +1,4 @@
+export { Accordion } from './Accordion'
 export { Anim } from './Anim'
 export { Button } from './Button'
 export { ButtonIcon } from './ButtonIcon'

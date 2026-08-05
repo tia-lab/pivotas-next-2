@@ -37,18 +37,34 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T07:39:58+00:00'
+            dateAdded: '2026-08-05T09:59:59+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 8f90746f-df77-4301-8220-07d63cdbdd52 # Form
+            fieldUid: 7de1aa36-fe1f-4d28-b98e-4d1e7123d0e9 # Rich Text
             handle: null
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2532f27e-6b23-4681-a727-e59ce6228ee9
+            uid: 6af79e90-795a-443e-9151-298e2b381972
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-08-05T07:39:58+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 8d3bb080-d6b6-4d8a-a457-cac15bef76d2 # Forms
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ea2a328-c7b0-4e4a-98c5-03c7ead85be1
             userCondition: null
             warning: null
             width: 100

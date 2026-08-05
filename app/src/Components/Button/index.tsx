@@ -101,8 +101,7 @@ export const Button = ({
 			[$.medium]: size === 'medium',
 			[$.large]: size === 'large',
 			[$.outline]: variant === 'outline',
-			[$.white_outline]: variant === 'white-outline',
-			[$.is_arrow]: arrow
+			[$.white_outline]: variant === 'white-outline'
 		},
 		externalClassName
 	)

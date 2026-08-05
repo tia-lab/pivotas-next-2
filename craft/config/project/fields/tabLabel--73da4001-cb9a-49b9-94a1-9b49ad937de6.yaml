@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: tabLabel
+instructions: 'Keep this short; it is displayed in the form tab button.'
+name: 'Tab Label'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 40
+  code: false
+  initialRows: 1
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText

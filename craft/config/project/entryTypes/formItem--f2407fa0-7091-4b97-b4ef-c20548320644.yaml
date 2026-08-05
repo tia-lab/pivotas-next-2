@@ -2,57 +2,57 @@ allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
-  dc6c0ea1-526b-4423-8363-91664ff89cdb:
+  8bcc117e-5f1e-46ab-97a3-5c0ab6f1029b:
     cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2026-08-05T11:39:56+00:00'
+            dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: 7de1aa36-fe1f-4d28-b98e-4d1e7123d0e9 # Rich Text
+            fieldUid: 73da4001-cb9a-49b9-94a1-9b49ad937de6 # Tab Label
             handle: null
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 57bf8dc4-a939-4c62-bad2-231083a73578
+            uid: 116c3071-f710-4906-8024-f16de623d85c
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-05T11:39:56+00:00'
+            dateAdded: null
             editCondition: null
             elementCondition: null
             elementEditCondition: null
-            fieldUid: d53bb36f-6fa0-4a78-8059-02622005bcfd # Accordion Items
+            fieldUid: 8f90746f-df77-4301-8220-07d63cdbdd52 # Form
             handle: null
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a6d2c577-648a-4a72-83e0-19f2494debb2
+            uid: c79bebca-13a8-43e6-a495-afb285a36986
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: e0cc8011-c99b-4342-a4ab-41e91b9a7499
+        uid: 7a852395-4f12-458d-9496-5ecde5ba37d1
         userCondition: null
     thumbFieldKey: null
-handle: legalItem
+handle: formItem
 hasTitleField: false
-icon: scale-balanced
-name: 'Legal Item'
+icon: rectangle-list
+name: 'Form Item'
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: null
+titleFormat: '{tabLabel}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-uiLabelFormat: '{title}'
+uiLabelFormat: '{tabLabel}'

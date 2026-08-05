@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: forms
+instructions: 'Add one item for a standard form page, or multiple items to display form tabs.'
+name: Forms
+searchable: false
+settings:
+  createButtonLabel: 'Add a form'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - f2407fa0-7091-4b97-b4ef-c20548320644 # Form Item
+        -
+          - group
+          - Forms
+  includeTableView: false
+  maxEntries: null
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

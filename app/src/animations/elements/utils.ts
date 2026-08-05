@@ -1,5 +1,4 @@
 import { config } from '$/config'
-import type { gsap, ScrollTrigger } from '@/gsap'
 import type {
 	AnimationMediaKey,
 	ElementAnimationContext,
@@ -48,10 +47,7 @@ export const resolveElementAnimationOverrides = ({
 			continue
 		}
 
-		resolved.fromVars = mergeVars(
-			resolved.fromVars ?? {},
-			media[key]?.fromVars
-		)
+		resolved.fromVars = mergeVars(resolved.fromVars ?? {}, media[key]?.fromVars)
 		resolved.vars = mergeVars(resolved.vars ?? {}, media[key]?.vars)
 		resolved.scrollTrigger = mergeVars(
 			resolved.scrollTrigger ?? {},

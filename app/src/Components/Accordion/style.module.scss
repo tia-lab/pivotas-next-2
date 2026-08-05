@@ -1,0 +1,57 @@
+@use '../../styles/export.scss' as *;
+
+.accordion {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem 0;
+	border-bottom: 1px solid $color-secondary-alpha-20;
+	&:first-child {
+		border-top: 1px solid $color-secondary-alpha-20;
+	}
+
+	.head {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		cursor: pointer;
+
+		.button {
+			border: 1px solid $color-secondary;
+			padding: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 100%;
+			transition:
+				color $duration-default $ease-out,
+				background-color $duration-default $ease-out,
+				rotate $duration-default $ease-out;
+
+			&:hover {
+				background-color: $color-secondary;
+				color: $color-primary;
+			}
+
+			&[data-active='true'] {
+				background-color: $color-secondary;
+				color: $color-primary;
+				rotate: 180deg;
+			}
+
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+		}
+	}
+
+	.content {
+		height: 0;
+		overflow: hidden;
+		opacity: 0;
+
+		.spacer {
+			height: 1.5rem;
+		}
+	}
+}

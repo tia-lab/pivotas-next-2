@@ -1,12 +1,25 @@
 'use client'
 
 import { Button } from '@/Components/Button'
+import clsx from 'clsx'
 import { useId, useState, type FormEvent } from 'react'
 import $ from './style.module.scss'
 import type { FormData, FormField, FormSubmitResponse } from './types'
 
 type FormClientProps = {
 	data: FormData
+}
+
+type ChoiceControlProps = {
+	describedBy?: string
+	defaultChecked?: boolean
+	id: string
+	invalid?: boolean
+	label: string
+	name: string
+	required?: boolean
+	type: 'checkbox' | 'radio'
+	value: string
 }
 
 const isRedirectSuccess = (behavior?: string | null) =>
@@ -56,7 +69,7 @@ const FieldLabel = ({
 	htmlFor?: string
 }) =>
 	field.label ? (
-		<label className={$.label} htmlFor={htmlFor}>
+		<label className={clsx('text-caption', $.label)} htmlFor={htmlFor}>
 			{field.label}
 			{field.required ? <span aria-hidden='true'>*</span> : null}
 		</label>
@@ -85,6 +98,40 @@ const FieldWrapper = ({
 		</div>
 	)
 }
+
+const ChoiceControl = ({
+	describedBy,
+	defaultChecked,
+	id,
+	invalid,
+	label,
+	name,
+	required,
+	type,
+	value
+}: ChoiceControlProps) => (
+	<label className={$.option} htmlFor={id}>
+		<input
+			aria-describedby={describedBy}
+			aria-invalid={invalid || undefined}
+			className={$.option_input}
+			defaultChecked={defaultChecked}
+			id={id}
+			name={name}
+			required={required}
+			type={type}
+			value={value}
+		/>
+		<span aria-hidden='true' className={$.option_control}>
+			{type === 'checkbox' ? (
+				<svg className={$.option_checkmark} viewBox='0 0 18 18'>
+					<path d='m4 9.15 3.15 3.15L14 5.45' />
+				</svg>
+			) : null}
+		</span>
+		<span className={$.option_label}>{label}</span>
+	</label>
+)
 
 const renderField = (
 	field: FormField,
@@ -184,18 +231,17 @@ const renderField = (
 		case 'FreeformField_Checkbox':
 			return (
 				<div className={$.field} key={handle}>
-					<label className={$.option}>
-						<input
-							aria-describedby={describedBy || undefined}
-							aria-invalid={fieldErrors?.length ? true : undefined}
-							defaultChecked={field.checkedByDefault ?? field.checked ?? false}
-							name={handle}
-							required={field.required ?? undefined}
-							type='checkbox'
-							value={field.value ?? '1'}
-						/>
-						<span>{field.label}</span>
-					</label>
+					<ChoiceControl
+						defaultChecked={field.checkedByDefault ?? field.checked ?? false}
+						describedBy={describedBy || undefined}
+						id={fieldId}
+						invalid={Boolean(fieldErrors?.length)}
+						label={field.label ?? ''}
+						name={handle}
+						required={field.required ?? undefined}
+						type='checkbox'
+						value={field.value ?? '1'}
+					/>
 					<FieldInstructions id={instructionsId}>{field.instructions}</FieldInstructions>
 					<FieldError errors={fieldErrors} id={errorsId} />
 				</div>
@@ -207,32 +253,41 @@ const renderField = (
 			const selectedValues = new Set(field.values ?? [])
 
 			return (
-				<fieldset className={$.field} key={handle}>
+				<fieldset
+					aria-describedby={describedBy || undefined}
+					aria-invalid={fieldErrors?.length ? true : undefined}
+					aria-required={field.required ?? undefined}
+					className={$.field}
+					key={handle}>
 					{field.label ? (
-						<legend className={$.label}>
+						<legend className={clsx('text-caption', $.label)}>
 							{field.label}
 							{field.required ? <span aria-hidden='true'>*</span> : null}
 						</legend>
 					) : null}
 					<div className={$.options} data-one-line={field.oneLine ?? undefined}>
-						{field.options?.map((option) => {
+						{field.options?.map((option, index) => {
 							const value = option.value ?? ''
 
 							return (
-								<label className={$.option} key={value || option.label}>
-									<input
-										defaultChecked={
-											isCheckbox
-												? selectedValues.has(value)
-												: field.value === value
-										}
-										name={isCheckbox ? `${handle}[]` : handle}
-										required={field.required ?? undefined}
-										type={isCheckbox ? 'checkbox' : 'radio'}
-										value={value}
-									/>
-									<span>{option.label ?? value}</span>
-								</label>
+								<ChoiceControl
+									defaultChecked={
+										isCheckbox
+											? selectedValues.has(value)
+											: field.value === value
+									}
+									describedBy={describedBy || undefined}
+									id={`${fieldId}-${index}`}
+									invalid={Boolean(fieldErrors?.length)}
+									key={value || option.label}
+									label={option.label ?? value}
+									name={isCheckbox ? `${handle}[]` : handle}
+									required={
+										!isCheckbox && field.required ? true : undefined
+									}
+									type={isCheckbox ? 'checkbox' : 'radio'}
+									value={value}
+								/>
 							)
 						})}
 					</div>
@@ -263,6 +318,7 @@ const renderField = (
 			return field.content ? (
 				<div
 					className={$.html}
+					data-field-handle={handle}
 					dangerouslySetInnerHTML={{ __html: field.content }}
 					key={handle}
 				/>
@@ -422,9 +478,11 @@ export const FormClient = ({ data }: FormClientProps) => {
 					</div>
 				))}
 			</div>
-			<Button disabled={shouldDisableSubmit} type='submit'>
-				{isSubmitting ? submittingLabel : submitLabel}
-			</Button>
+			<div className={$.controls}>
+				<Button arrow disabled={shouldDisableSubmit} type='submit'>
+					{isSubmitting ? submittingLabel : submitLabel}
+				</Button>
+			</div>
 		</form>
 	)
 }

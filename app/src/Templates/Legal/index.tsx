@@ -1,6 +1,7 @@
-import { Wrapper } from '@/Components'
+import { Accordion, Anim, Container, Wrapper } from '@/Components'
 import { Footer } from '@/Sections/Footer'
 import { EntryByUriQuery } from '@/queries'
+import clsx from 'clsx'
 import type { ResultOf } from 'gql.tada'
 import $ from './style.module.scss'
 
@@ -12,60 +13,80 @@ type Props = {
 }
 
 export const LegalTemplate = ({ entry }: Props) => {
+	const title = entry.richText?.html ?? entry.title ?? null
+	const parseCounter = (n: number): string => {
+		if (n < 10) {
+			return `0${n}`
+		} else {
+			return `${n}`
+		}
+	}
+
 	return (
 		<>
-			<main>
-				<article className={$.article}>
-					<Wrapper>
-						<h1 className={$.title}>{entry.title}</h1>
-						<div className={$.items}>
-							{entry.legalItems?.map((item) => {
-								if (!item || item.__typename !== 'legalItem_Entry') {
-									return null
-								}
+			<section className={$.section}>
+				<Wrapper>
+					<div className={$.head}>
+						{title ? (
+							<Anim.div
+								className={clsx('title-h1', $.title)}
+								type='fade-up'
+								dangerouslySetInnerHTML={{ __html: title }}
+							/>
+						) : null}
+						{entry.legalItems?.length ? (
+							<div className={clsx('title-h3', $.number)}>
+								{parseCounter(entry.legalItems.length)}
+							</div>
+						) : null}
+					</div>
+					<div className={$.items}>
+						{entry.legalItems?.map((item, i) => {
+							if (!item || item.__typename !== 'legalItem_Entry') {
+								return null
+							}
 
-								return (
-									<section className={$.item} key={item.id}>
-										<h2>{item.title}</h2>
-										{item.richText?.html ? (
-											<div
-												className={$.rich_text}
-												dangerouslySetInnerHTML={{ __html: item.richText.html }}
-											/>
-										) : null}
-										{item.accordionItems?.length ? (
-											<div className={$.accordions}>
-												{item.accordionItems.map((accordion) => {
-													if (
-														!accordion ||
-														accordion.__typename !== 'accordionItem_Entry'
-													) {
-														return null
-													}
+							return (
+								<div className={$.item} key={item.id}>
+									<Container>
+										<div className={clsx('title-h2', $.item_number)}>
+											{parseCounter(i + 1)}
+										</div>
+										<div className={$.content}>
+											{item.richText?.html ? (
+												<div
+													className={$.rich_text}
+													dangerouslySetInnerHTML={{ __html: item.richText.html }}
+												/>
+											) : null}
+											{item.accordionItems?.length ? (
+												<div className={$.accordions}>
+													{item.accordionItems.map((accordion) => {
+														if (
+															!accordion ||
+															accordion.__typename !== 'accordionItem_Entry'
+														) {
+															return null
+														}
 
-													return (
-														<details className={$.accordion} key={accordion.id}>
-															<summary>{accordion.title}</summary>
-															{accordion.richText?.html ? (
-																<div
-																	className={$.accordion_content}
-																	dangerouslySetInnerHTML={{
-																		__html: accordion.richText.html
-																	}}
-																/>
-															) : null}
-														</details>
-													)
-												})}
-											</div>
-										) : null}
-									</section>
-								)
-							})}
-						</div>
-					</Wrapper>
-				</article>
-			</main>
+														return (
+															<Accordion
+																title={accordion.title}
+																key={accordion.id}
+																content={accordion.richText?.html ?? ''}
+															/>
+														)
+													})}
+												</div>
+											) : null}
+										</div>
+									</Container>
+								</div>
+							)
+						})}
+					</div>
+				</Wrapper>
+			</section>
 			<Footer />
 		</>
 	)

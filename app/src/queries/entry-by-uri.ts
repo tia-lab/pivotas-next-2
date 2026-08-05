@@ -36,11 +36,13 @@ export const EntryByUriQuery = graphql(
 				}
 				... on legalPage_Entry {
 					...LegalSeoFragment
+					richText {
+						html
+					}
 					legalItems {
 						... on legalItem_Entry {
 							__typename
 							id
-							title
 							richText {
 								html
 							}
@@ -63,8 +65,18 @@ export const EntryByUriQuery = graphql(
 				}
 				... on formPage_Entry {
 					...FormPageSeoFragment
-					form {
-						...FreeformFormFragment
+					richText {
+						html
+					}
+					forms {
+						... on formItem_Entry {
+							__typename
+							id
+							tabLabel
+							form {
+								...FreeformFormFragment
+							}
+						}
 					}
 				}
 				... on news_Entry {
