@@ -6,9 +6,7 @@ import {
 	type ElementAnimationMediaOverrides,
 	type ElementAnimationName
 } from '@/animations/elements'
-import { gsap } from '@/gsap'
 import { useGsapMatchMedia } from '@/hooks'
-import type { ScrollTrigger } from '@/gsap'
 
 type AnimRuntimeProps = {
 	targetId: string

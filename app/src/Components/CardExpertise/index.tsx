@@ -7,6 +7,7 @@ import { ExpertiseIndexQuery } from '@/queries'
 import clsx from 'clsx'
 import type { ResultOf } from 'gql.tada'
 import { useEffect, useRef, useState } from 'react'
+import { Anim } from '../Anim'
 import { ImageCraft } from '../ImageCraft'
 import { LinkArrow } from '../LinkArrow'
 import $ from './style.module.scss'
@@ -62,9 +63,9 @@ export const CardExpertise = ({ item, variant }: ExpertiseCardProps) => {
 			className={clsx($.article, variant === 'slider' && $.is_slider)}
 			ref={ref}>
 			{item.image?.[0] ? (
-				<div className={$.image_wrapper}>
+				<Anim.div className={$.image_wrapper} type='image-reveal'>
 					<ImageCraft image={item.image[0]} className={$.image} data-image />
-				</div>
+				</Anim.div>
 			) : null}
 
 			<div

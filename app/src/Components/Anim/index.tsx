@@ -1,15 +1,14 @@
-import {
-	Fragment,
-	createElement,
-	type ComponentPropsWithoutRef,
-	type ReactElement,
-	useId
-} from 'react'
 import type {
 	ElementAnimationMediaOverrides,
 	ElementAnimationName
 } from '@/animations/elements'
-import type { gsap, ScrollTrigger } from '@/gsap'
+import {
+	createElement,
+	Fragment,
+	useId,
+	type ComponentPropsWithoutRef,
+	type ReactElement
+} from 'react'
 import { AnimRuntime } from './runtime'
 
 type IntrinsicTag = keyof React.JSX.IntrinsicElements
@@ -37,7 +36,10 @@ type AnimFactory = {
 	[Tag in IntrinsicTag]: AnimElementComponent<Tag>
 }
 
-const componentCache = new Map<IntrinsicTag, AnimElementComponent<IntrinsicTag>>()
+const componentCache = new Map<
+	IntrinsicTag,
+	AnimElementComponent<IntrinsicTag>
+>()
 
 const createAnimElement = <Tag extends IntrinsicTag>(
 	tag: Tag
